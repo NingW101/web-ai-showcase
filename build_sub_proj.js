@@ -3,7 +3,12 @@ import { execSync } from "child_process";
 const PHI3_PROJECT_NAME = "phi3-webgpu";
 
 const args = process.argv.slice(2);
-const buildCmd = args[0] === "github" ? "build:github" : "build";
+let buildCmd = "build";
+if (args[0] === "github") {
+  buildCmd = "build:github";
+} else if (args[0] === "modelscope") {
+  buildCmd = "build:modelscope";
+}
 
 function buildPhi3WebGPU() {
   try {

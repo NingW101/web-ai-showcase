@@ -5,7 +5,6 @@
  *-----------------------------------------------------------------------------------------------*/
 
 import { AutoTokenizer, env } from "@xenova/transformers";
-// import * as ort from "onnxruntime-web/webgpu";
 import { setupNavigBar } from "../../js/navbar.js";
 import {
   changeClass4StatusBar,

@@ -7,10 +7,16 @@
 import { setupNavigBar } from "./navbar.js";
 
 // Used for release to public domain, so the project can be hosted on GitHub Pages or other static hosting services.
-const baseUrl =
-  location.href.toLowerCase().indexOf("github.io") > -1
-    ? "/web-ai-showcase/"
-    : "/";
+let baseUrl = "/";
+if (location.href.toLowerCase().indexOf("github.io") > -1)
+  baseUrl = "/web-ai-showcase/";
+else if (
+  location.href.toLowerCase().indexOf("modelscope.cn") > -1 ||
+  location.href.toLowerCase().indexOf("s5k.cn") > -1
+) {
+  // set up base for modelScope
+  baseUrl = "/api/v1/studio/ningwang101/Stable-Diffusion-Turbo-WebGPU/static/";
+}
 
 const BACKENDS = {
   WASM: "WASM",

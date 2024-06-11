@@ -61,16 +61,26 @@ class TextGenerationPipeline {
 
   static async getInstance(progress_callback = null) {
     // Choose the model based on whether fp16 is available
-    this.model_id ??= (await hasFp16())
-      ? "Xenova/Phi-3-mini-4k-instruct_fp16"
-      : "Xenova/Phi-3-mini-4k-instruct";
+    if (
+      location.href.toLowerCase().indexOf("modelscope.cn") > -1 ||
+      location.href.toLowerCase().indexOf("s5k.cn") > -1
+    ) {
+      //https://modelscope.cn/api/v1/models/ZhipuAI/glm-4-9b-chat/repo?Revision=master&FilePath=model-00010-of-00010.safetensors
+      this.model_id = "ZhipuAI/glm-4-9b-chat";
+    } else {
+      this.model_id ??= (await hasFp16())
+        ? "Xenova/Phi-3-mini-4k-instruct_fp16"
+        : "Xenova/Phi-3-mini-4k-instruct";
+    }
 
     this.tokenizer ??= AutoTokenizer.from_pretrained(this.model_id, {
+      revision: "master",
       legacy: true,
       progress_callback
     });
 
     this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
+      revision: "master",
       dtype: "q4",
       device: "webgpu",
       use_external_data_format: true,
@@ -129,13 +139,26 @@ async function generate(messages) {
   });
 }
 
+function getBaseURL(domain) {
+  if (domain.indexOf("github.io") > -1) {
+    return "/web-ai-showcase/";
+  } else if (
+    domain.indexOf("modelscope.cn") > -1 ||
+    domain.indexOf("s5k.cn") > -1
+  ) {
+    return "/api/v1/studio/ningwang101/Stable-Diffusion-Turbo-WebGPU/static/";
+  } else {
+    return "/";
+  }
+}
+
 async function load() {
   self.postMessage({
     status: "loading",
     data: `Loading model and initializing`
   });
 
-  let baseUrl = "/";
+  const baseUrl = getBaseURL(location.href.toLowerCase());
 
   if (location.href.toLowerCase().indexOf("github.io") > -1) {
     // Used for release to public domain, so the project can be hosted on GitHub Pages or other static hosting services.
