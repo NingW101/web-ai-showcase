@@ -16,13 +16,8 @@ import {
   TRANSFORMERS_V3_ORT_ENV_WASM_FILE_PATH
 } from "../../config.js";
 
-if (USE_REMOTE_MODELS) {
-  env.allowLocalModels = false;
-  env.allowRemoteModels = true;
-} else {
-  env.allowLocalModels = true;
-  env.allowRemoteModels = false;
-}
+env.allowLocalModels = true;
+const modelScopeBaseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static/";
 
 // Define task function mapping
 const TASK_FUNCTION_MAPPING = {
@@ -46,13 +41,16 @@ const TASK_FUNCTION_MAPPING = {
 self.addEventListener("message", async (event) => {
   const { baseURI } = event.data;
   if (baseURI) {
-    env.localModelPath = new URL(baseURI).origin + TRANSFORMER_LOCAL_MODEL_PATH;
+    env.localModelPath =
+      new URL(baseURI).origin +
+      modelScopeBaseUrl +
+      TRANSFORMER_LOCAL_MODEL_PATH;
 
-    // set up local wasm paths for hosting mode
-    if (!USE_REMOTE_MODELS) {
-      env.backends.onnx.wasm.wasmPaths =
-        new URL(baseURI).origin + TRANSFORMERS_V3_ORT_ENV_WASM_FILE_PATH;
-    }
+    // set up to use local wasm
+    env.backends.onnx.wasm.wasmPaths =
+      new URL(baseURI).origin +
+      modelScopeBaseUrl +
+      TRANSFORMERS_V3_ORT_ENV_WASM_FILE_PATH;
   }
   const data = event.data;
   let fn = TASK_FUNCTION_MAPPING[data.task];

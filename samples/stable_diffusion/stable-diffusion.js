@@ -12,18 +12,12 @@ import {
   initModelsPanelHandler,
   removeHiddenClass
 } from "../common/utility.js";
-import { USE_REMOTE_MODELS, ALL_NEEDED_MODEL_RESOURCES } from "../../config.js";
+import { ALL_NEEDED_MODEL_RESOURCES } from "../../config.js";
 
 // load navigation bar
 setupNavigBar("../..");
 
-if (USE_REMOTE_MODELS) {
-  env.allowLocalModels = false;
-  env.allowRemoteModels = true;
-} else {
-  env.allowLocalModels = true;
-  env.allowRemoteModels = false;
-}
+env.allowLocalModels = true;
 
 var deviceWebgpu = null;
 var queueWebgpu = null;

@@ -27,20 +27,13 @@ import exampleImg from "/assets/person.avif";
 
 // load navigation bar
 setupNavigBar("../..");
+const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
 
 // Since we will download the model from the Hugging Face Hub, we can skip the local model check
-env.allowLocalModels = USE_REMOTE_MODELS ? false : true;
-env.allowRemoteModels = USE_REMOTE_MODELS ? true : false;
+env.allowLocalModels = true;
+env.backends.onnx.wasm.wasmPaths =
+  baseUrl + TRANSFORMERS_V3_ORT_ENV_WASM_FILE_PATH;
 
-// Proxy the WASM backend to prevent the UI from freezing
-env.backends.onnx.wasm.proxy = false;
-
-// set up local wasm paths for hosting mode
-if (!USE_REMOTE_MODELS) {
-  env.backends.onnx.wasm.wasmPaths = TRANSFORMERS_V3_ORT_ENV_WASM_FILE_PATH;
-}
-
-// Constants
 const DEFAULT_CACHE_STORAGE_NAME = "transformers-cache";
 const MODEL_NAME = "RMBG-1.4";
 
