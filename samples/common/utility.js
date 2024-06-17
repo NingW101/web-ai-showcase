@@ -60,12 +60,14 @@ export function defineResourcesObject(modelName) {
 }
 
 export function getRequestPrefix(modelName) {
-  return USE_REMOTE_MODELS
-    ? ALL_NEEDED_MODEL_RESOURCES[modelName].linkPathPrefix
-    : TRANSFORMER_LOCAL_MODEL_PATH +
-        ALL_NEEDED_MODEL_RESOURCES[modelName].localFolderPathPrefix +
-        modelName +
-        "/";
+  const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
+  return (
+    baseUrl +
+    TRANSFORMER_LOCAL_MODEL_PATH +
+    ALL_NEEDED_MODEL_RESOURCES[modelName].localFolderPathPrefix +
+    modelName +
+    "/"
+  );
 }
 
 export function getElementId4Resource(resource) {

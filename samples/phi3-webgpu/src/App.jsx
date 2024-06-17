@@ -33,7 +33,7 @@ async function hasFp16() {
   }
 }
 
-const baseUrl = import.meta.env.VITE_BASE;
+const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
 
 const MODEL_NAME = (await hasFp16())
   ? "Phi-3-mini-4k-instruct_fp16"

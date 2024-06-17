@@ -987,7 +987,6 @@ function webgpuResourceInitialize() {
 }
 
 async function updateStatusOfModels() {
-  let modelsAllReady = true;
   for (const [name, model] of Object.entries(models)) {
     const statusBarElement = document.getElementById(`${name}StatusBar`);
     if (!statusBarElement) return;
@@ -1002,15 +1001,10 @@ async function updateStatusOfModels() {
       changeClass4StatusBar("cached", statusBarElement);
       removeHiddenClass(document.getElementById(`${name}StatusFlag`));
     } catch (e) {
-      modelsAllReady = false;
       statusBarElement.textContent = "unload";
       changeClass4StatusBar("unload", statusBarElement);
     }
   } // check if all models are ready
-  if (modelsAllReady) {
-    // change the `LOAD_MODELS_TRIGGER_BUTTON` text content to `trigger`
-    LOAD_MODELS_TRIGGER_BUTTON.textContent = "trigger";
-  }
 }
 
 function formatBufferSize(bufferByteSize) {

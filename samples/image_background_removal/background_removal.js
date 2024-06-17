@@ -18,7 +18,7 @@ import {
   removeHiddenClass
 } from "../common/utility.js";
 import {
-  USE_REMOTE_MODELS,
+  TRANSFORMER_LOCAL_MODEL_PATH,
   ALL_NEEDED_MODEL_RESOURCES,
   TRANSFORMERS_V3_ORT_ENV_WASM_FILE_PATH
 } from "../../config.js";
@@ -31,6 +31,7 @@ const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
 
 // Since we will download the model from the Hugging Face Hub, we can skip the local model check
 env.allowLocalModels = true;
+env.localModelPath = baseUrl + TRANSFORMER_LOCAL_MODEL_PATH;
 env.backends.onnx.wasm.wasmPaths =
   baseUrl + TRANSFORMERS_V3_ORT_ENV_WASM_FILE_PATH;
 
