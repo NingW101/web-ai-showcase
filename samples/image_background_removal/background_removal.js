@@ -32,8 +32,10 @@ const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
 // Since we will download the model from the Hugging Face Hub, we can skip the local model check
 env.allowLocalModels = true;
 env.localModelPath = baseUrl + TRANSFORMER_LOCAL_MODEL_PATH;
+const domain = location.href.match(/(https?:\/\/[^/]+)/)[0];
+
 env.backends.onnx.wasm.wasmPaths =
-  baseUrl + TRANSFORMERS_V3_ORT_ENV_WASM_FILE_PATH;
+  domain + baseUrl + TRANSFORMERS_V3_ORT_ENV_WASM_FILE_PATH;
 
 const DEFAULT_CACHE_STORAGE_NAME = "transformers-cache";
 const MODEL_NAME = "RMBG-1.4";
