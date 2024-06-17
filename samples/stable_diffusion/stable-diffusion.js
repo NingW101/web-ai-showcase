@@ -8,11 +8,13 @@ import { AutoTokenizer, env } from "@xenova/transformers";
 import { setupNavigBar } from "../../js/navbar.js";
 import {
   changeClass4StatusBar,
-  getRequestPrefix,
   initModelsPanelHandler,
   removeHiddenClass
 } from "../common/utility.js";
-import { ALL_NEEDED_MODEL_RESOURCES } from "../../config.js";
+import {
+  ALL_NEEDED_MODEL_RESOURCES,
+  TRANSFORMER_LOCAL_MODEL_PATH
+} from "../../config.js";
 
 // load navigation bar
 setupNavigBar("../..");
@@ -212,22 +214,13 @@ const STATUS = {
   DONE: 3
 };
 
-function defineTokenizerConfigs() {
-  let _tokenizer = {};
-  for (const _config of ALL_NEEDED_MODEL_RESOURCES[tokenizerName].resources) {
-    _tokenizer[_config.split(".")[0]] = {
-      fullUrl: getRequestPrefix(tokenizerName) + _config
-    };
-  }
-
-  return _tokenizer;
-}
-
-const tokenizerConfigs = defineTokenizerConfigs();
-
 function getConfig() {
   var config = {
-    model: getRequestPrefix(modelName),
+    model:
+      TRANSFORMER_LOCAL_MODEL_PATH +
+      ALL_NEEDED_MODEL_RESOURCES[modelName].localFolderPathPrefix +
+      modelName +
+      "/",
     provider: "webgpu",
     device: "gpu",
     threads: "1",
@@ -995,6 +988,7 @@ function webgpuResourceInitialize() {
 }
 
 async function updateStatusOfModels() {
+  let modelsAllReady = true;
   for (const [name, model] of Object.entries(models)) {
     const statusBarElement = document.getElementById(`${name}StatusBar`);
     if (!statusBarElement) return;
@@ -1003,12 +997,20 @@ async function updateStatusOfModels() {
     // show the status flag in the status panels or not
     const root = await navigator.storage.getDirectory();
     try {
-      statusBarElement.textContent = "unload";
-      changeClass4StatusBar("unload", statusBarElement);
       const fileHandle = await root.getFileHandle(name);
       await fileHandle.getFile();
+      statusBarElement.textContent = "cached";
+      changeClass4StatusBar("cached", statusBarElement);
       removeHiddenClass(document.getElementById(`${name}StatusFlag`));
-    } catch (e) {}
+    } catch (e) {
+      modelsAllReady = false;
+      statusBarElement.textContent = "unload";
+      changeClass4StatusBar("unload", statusBarElement);
+    }
+  } // check if all models are ready
+  if (modelsAllReady) {
+    // change the `LOAD_MODELS_TRIGGER_BUTTON` text content to `trigger`
+    LOAD_MODELS_TRIGGER_BUTTON.textContent = "trigger";
   }
 }
 
@@ -1122,6 +1124,9 @@ async function uploadHandler(event, resource) {
       if (!progressBar.classList.contains("hidden")) {
         progressBar.classList.add("hidden");
       }
+
+      // should update the model status in the status panel
+      await updateStatusOfModels();
     };
 
     reader.readAsArrayBuffer(file);

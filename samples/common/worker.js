@@ -12,7 +12,6 @@ import { pipeline, env } from "@xenova/transformers";
 
 import {
   TRANSFORMER_LOCAL_MODEL_PATH,
-  USE_REMOTE_MODELS,
   TRANSFORMERS_V3_ORT_ENV_WASM_FILE_PATH
 } from "../../config.js";
 
