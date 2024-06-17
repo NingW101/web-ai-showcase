@@ -33,11 +33,14 @@ async function hasFp16() {
   }
 }
 
+const baseUrl = import.meta.env.VITE_BASE;
+
 const MODEL_NAME = (await hasFp16())
   ? "Phi-3-mini-4k-instruct_fp16"
   : "Phi-3-mini-4k-instruct";
 
 const LOCAL_REQUEST_PREFIX =
+  baseUrl +
   TRANSFORMER_LOCAL_MODEL_PATH +
   ALL_NEEDED_MODEL_RESOURCES[MODEL_NAME].localFolderPathPrefix +
   MODEL_NAME +

@@ -66,13 +66,11 @@ class TextGenerationPipeline {
       : "Xenova/Phi-3-mini-4k-instruct";
 
     this.tokenizer ??= AutoTokenizer.from_pretrained(this.model_id, {
-      revision: "master",
       legacy: true,
       progress_callback
     });
 
     this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
-      revision: "master",
       dtype: "q4",
       device: "webgpu",
       use_external_data_format: true,
@@ -137,14 +135,14 @@ async function load() {
     data: `Loading model and initializing`
   });
 
-  const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static/";
+  const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
 
   // transformers will first fetch from local model path
   // then from remote model path if not found locally
-  env.localModelPath = "/models/";
+  env.localModelPath = `${baseUrl}/models/`;
   env.allowLocalModels = true;
   // set up the path to use local wasm files for the onnx backend
-  env.backends.onnx.wasm.wasmPaths = `${baseUrl}models/wasm/ort-web@1_19_0_dev/`;
+  env.backends.onnx.wasm.wasmPaths = `${baseUrl}/models/wasm/ort-web@1_19_0_dev/`;
 
   // Load the pipeline and save it for future use.
   const [tokenizer, model] = await TextGenerationPipeline.getInstance((x) => {

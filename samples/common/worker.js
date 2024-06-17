@@ -16,7 +16,7 @@ import {
 } from "../../config.js";
 
 env.allowLocalModels = true;
-const modelScopeBaseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static/";
+const modelScopeBaseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
 
 // Define task function mapping
 const TASK_FUNCTION_MAPPING = {

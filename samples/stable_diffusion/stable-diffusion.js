@@ -16,10 +16,13 @@ import {
   TRANSFORMER_LOCAL_MODEL_PATH
 } from "../../config.js";
 
+const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
+
 // load navigation bar
 setupNavigBar("../..");
 
 env.allowLocalModels = true;
+env.localModelPath = baseUrl + TRANSFORMER_LOCAL_MODEL_PATH;
 
 var deviceWebgpu = null;
 var queueWebgpu = null;
@@ -216,11 +219,7 @@ const STATUS = {
 
 function getConfig() {
   var config = {
-    model:
-      TRANSFORMER_LOCAL_MODEL_PATH +
-      ALL_NEEDED_MODEL_RESOURCES[modelName].localFolderPathPrefix +
-      modelName +
-      "/",
+    model: ALL_NEEDED_MODEL_RESOURCES[modelName].linkPathPrefix,
     provider: "webgpu",
     device: "gpu",
     threads: "1",
