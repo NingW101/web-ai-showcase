@@ -70,29 +70,29 @@ let SAMPLES = [
     devices: [DEVICES.GPU],
     update: "2024-06-08"
   },
-  // {
-  //   id: "webgpu_benchmark",
-  //   title: "WebGPU Benchmark",
-  //   desc: "Benchmark to compare perf of WebGPU vs WASM",
-  //   sampleUrl:
-  //     "https://huggingface.co/spaces/Xenova/webgpu-embedding-benchmark",
-  //   models: ["All MiniLM L6 v2"],
-  //   webApis: [BACKENDS.WEBGPU],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.GPU],
-  //   update: "2024-06-08"
-  // },
-  // {
-  //   id: "webgpu_clip",
-  //   title: "OpenAI Clip",
-  //   desc: "Zero-shot Image Classification",
-  //   sampleUrl: "https://huggingface.co/spaces/Xenova/webgpu-clip",
-  //   models: ["Clip"],
-  //   webApis: [BACKENDS.WEBGPU],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.GPU],
-  //   update: "2024-06-08"
-  // },
+  {
+    id: "webgpu_benchmark",
+    title: "WebGPU Benchmark",
+    desc: "Benchmark to compare perf of WebGPU vs WASM",
+    sampleUrl:
+      "https://huggingface.co/spaces/Xenova/webgpu-embedding-benchmark",
+    models: ["All MiniLM L6 v2"],
+    webApis: [BACKENDS.WEBGPU],
+    framework: "Transformers.js",
+    devices: [DEVICES.GPU],
+    update: "2024-06-08"
+  },
+  {
+    id: "webgpu_clip",
+    title: "OpenAI Clip",
+    desc: "Zero-shot Image Classification",
+    sampleUrl: "https://huggingface.co/spaces/Xenova/webgpu-clip",
+    models: ["Clip"],
+    webApis: [BACKENDS.WEBGPU],
+    framework: "Transformers.js",
+    devices: [DEVICES.GPU],
+    update: "2024-06-08"
+  },
   {
     id: "webgpu_llm_gemma",
     title: "LLM-Gemma",
@@ -104,30 +104,30 @@ let SAMPLES = [
     devices: [DEVICES.GPU],
     update: "2024-06-08"
   },
-  // {
-  //   id: "webgpu_modnet",
-  //   title: "MODNet",
-  //   desc: "Realtime Video Background Removal",
-  //   sampleUrl:
-  //     "https://huggingface.co/spaces/Xenova/webgpu-video-background-removal",
-  //   models: ["MODNet"],
-  //   webApis: [BACKENDS.WEBGPU],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.GPU],
-  //   update: "2024-06-08"
-  // },
-  // {
-  //   id: "webgpu_moondream",
-  //   title: "Moondream",
-  //   desc: "Vision-Language Model",
-  //   sampleUrl:
-  //     "https://huggingface.co/spaces/Xenova/experimental-moondream-webgpu",
-  //   models: ["Moondream"],
-  //   webApis: [BACKENDS.WEBGPU],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.GPU],
-  //   update: "2024-06-10"
-  // },
+  {
+    id: "webgpu_modnet",
+    title: "MODNet",
+    desc: "Realtime Video Background Removal",
+    sampleUrl:
+      "https://huggingface.co/spaces/Xenova/webgpu-video-background-removal",
+    models: ["MODNet"],
+    webApis: [BACKENDS.WEBGPU],
+    framework: "Transformers.js",
+    devices: [DEVICES.GPU],
+    update: "2024-06-08"
+  },
+  {
+    id: "webgpu_moondream",
+    title: "Moondream",
+    desc: "Vision-Language Model",
+    sampleUrl:
+      "https://huggingface.co/spaces/Xenova/experimental-moondream-webgpu",
+    models: ["Moondream"],
+    webApis: [BACKENDS.WEBGPU],
+    framework: "Transformers.js",
+    devices: [DEVICES.GPU],
+    update: "2024-06-10"
+  },
   {
     id: "webgpu_phi3_mini",
     title: "Phi-3-mini",
@@ -139,28 +139,28 @@ let SAMPLES = [
     devices: [DEVICES.GPU],
     update: "2024-06-09"
   },
-  // {
-  //   id: "webgpu_qwen2",
-  //   title: "Qwen2",
-  //   desc: "Language understanding/generation, multilingual capability, coding, mathematics, etc.",
-  //   sampleUrl: "https://huggingface.co/spaces/Xenova/webgpu-chat-qwen2",
-  //   models: ["Qwen2 0.5B Instruct"],
-  //   webApis: [BACKENDS.WEBGPU],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.GPU],
-  //   update: "2024-06-10"
-  // },
-  // {
-  //   id: "webgpu_sam",
-  //   title: "Segment Anything",
-  //   desc: `AI model from Meta that can "cut out" any object`,
-  //   sampleUrl: "https://huggingface.co/spaces/Xenova/segment-anything-webgpu",
-  //   models: ["Sam"],
-  //   webApis: [BACKENDS.WEBGPU],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.GPU],
-  //   update: "2024-06-08"
-  // },
+  {
+    id: "webgpu_qwen2",
+    title: "Qwen2",
+    desc: "Language understanding/generation, multilingual capability, coding, mathematics, etc.",
+    sampleUrl: "https://huggingface.co/spaces/Xenova/webgpu-chat-qwen2",
+    models: ["Qwen2 0.5B Instruct"],
+    webApis: [BACKENDS.WEBGPU],
+    framework: "Transformers.js",
+    devices: [DEVICES.GPU],
+    update: "2024-06-10"
+  },
+  {
+    id: "webgpu_sam",
+    title: "Segment Anything",
+    desc: `AI model from Meta that can "cut out" any object`,
+    sampleUrl: "https://huggingface.co/spaces/Xenova/segment-anything-webgpu",
+    models: ["Sam"],
+    webApis: [BACKENDS.WEBGPU],
+    framework: "Transformers.js",
+    devices: [DEVICES.GPU],
+    update: "2024-06-08"
+  },
   {
     id: "webgpu_sd_turbo",
     title: "Stable Diffusion Turbo",
@@ -183,17 +183,17 @@ let SAMPLES = [
     devices: [DEVICES.GPU],
     update: "2024-06-09"
   },
-  // {
-  //   id: "webgpu_whisper",
-  //   title: "Whisper",
-  //   desc: "Real-time speech recognition with OpenAI Whisper across 100 different languages",
-  //   sampleUrl: "https://huggingface.co/spaces/Xenova/realtime-whisper-webgpu",
-  //   models: ["Whisper Base"],
-  //   webApis: [BACKENDS.WEBGPU],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.GPU],
-  //   update: "2024-06-10"
-  // },
+  {
+    id: "webgpu_whisper",
+    title: "Whisper",
+    desc: "Real-time speech recognition with OpenAI Whisper across 100 different languages",
+    sampleUrl: "https://huggingface.co/spaces/Xenova/realtime-whisper-webgpu",
+    models: ["Whisper Base"],
+    webApis: [BACKENDS.WEBGPU],
+    framework: "Transformers.js",
+    devices: [DEVICES.GPU],
+    update: "2024-06-10"
+  },
 
   // WebNN
   {
@@ -356,7 +356,7 @@ function constructSampleHTML(samples) {
   const sampleCardHTML = samples
     .map((sample) => {
       return `
-            <a class="group relative flex h-[280px] 2xl:h-[360px]  flex-col gap-6 rounded-xl overflow-hidden" href="${sample.sampleUrl}">
+            <a class="group relative flex h-[280px] 2xl:h-[360px]  flex-col gap-6 rounded-xl overflow-hidden" href="${sample.sampleUrl}" ${sample.sampleUrl.startsWith("https") ? `target = "_blank"` : ""}>
             <div class="absolute inset-0 h-[180px] 2xl:h-[220px]  rounded-xl overflow-hidden group-hover:h-full w-full duration-[250ms]">
               <video
               poster="${baseUrl}assets/${sample.id}.png"
@@ -656,8 +656,6 @@ function changeFilterHandler() {
 
 constructFilter();
 constructPagination();
-changePageHandler();
-bindPageChangeEventHandler();
 bindFilterChangeEventHandler();
 changeFilterHandler();
 setupVideos();
