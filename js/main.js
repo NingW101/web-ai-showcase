@@ -10,7 +10,7 @@ import { setupNavigBar } from "./navbar.js";
 const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static/";
 
 const BACKENDS = {
-  WASM: "WASM",
+  WASM: "Wasm",
   WEBGPU: "WebGPU",
   WEBNN: "WebNN"
 };
@@ -26,10 +26,11 @@ let SAMPLES = [
   // WASM
   {
     id: "wasm_image_to_text",
-    title: "Image to Text",
+    title: "ViT GPT2",
     desc: "Generate text from image",
     sampleUrl: "./samples/image_to_text/index.html",
     models: ["ViT GPT2"],
+    tasks: "Image-to-Text",
     webApis: [BACKENDS.WASM],
     framework: "Transformers.js",
     devices: [DEVICES.CPU],
@@ -37,10 +38,11 @@ let SAMPLES = [
   },
   {
     id: "wasm_question_answering",
-    title: "Question Answering",
+    title: "DistilBERT",
     desc: "Answer question from context",
     sampleUrl: "./samples/question_answering/index.html",
     models: ["DistilBERT"],
+    tasks: "Fill-Mask",
     webApis: [BACKENDS.WASM],
     framework: "Transformers.js",
     devices: [DEVICES.CPU],
@@ -48,10 +50,11 @@ let SAMPLES = [
   },
   {
     id: "wasm_summarization",
-    title: "Summarization",
+    title: "DistilBART",
     desc: "Generate summaries of paragraphs",
     sampleUrl: "./samples/summarization/index.html",
-    models: ["DistilBART CNN"],
+    models: ["DistilBART"],
+    tasks: "Summarization",
     webApis: [BACKENDS.WASM],
     framework: "Transformers.js",
     devices: [DEVICES.CPU],
@@ -61,10 +64,11 @@ let SAMPLES = [
   // WebGPU
   {
     id: "webgpu_background_removal",
-    title: "Background Removal",
+    title: "RMBG",
     desc: "Remove the background of an image",
     sampleUrl: "./samples/image_background_removal/index.html",
     models: ["RMBG v1.4"],
+    tasks: "Image Segmentation",
     webApis: [BACKENDS.WEBGPU],
     framework: "Transformers.js",
     devices: [DEVICES.GPU],
@@ -72,11 +76,12 @@ let SAMPLES = [
   },
   {
     id: "webgpu_benchmark",
-    title: "WebGPU Benchmark",
-    desc: "Benchmark to compare perf of WebGPU vs WASM",
+    title: "Benchmark",
+    desc: "Benchmark to compare perf of WebGPU vs Wasm",
     sampleUrl:
       "https://huggingface.co/spaces/Xenova/webgpu-embedding-benchmark",
     models: ["All MiniLM L6 v2"],
+    tasks: "N/A",
     webApis: [BACKENDS.WEBGPU],
     framework: "Transformers.js",
     devices: [DEVICES.GPU],
@@ -85,9 +90,10 @@ let SAMPLES = [
   {
     id: "webgpu_clip",
     title: "OpenAI Clip",
-    desc: "Zero-shot Image Classification",
+    desc: "Learn about what contributes to robustness in computer vision tasks",
     sampleUrl: "https://huggingface.co/spaces/Xenova/webgpu-clip",
     models: ["Clip"],
+    tasks: "Zero-shot Image Classification",
     webApis: [BACKENDS.WEBGPU],
     framework: "Transformers.js",
     devices: [DEVICES.GPU],
@@ -95,10 +101,11 @@ let SAMPLES = [
   },
   {
     id: "webgpu_llm_gemma",
-    title: "LLM-Gemma",
+    title: "Gemma",
     desc: "LLM-Gemma",
     sampleUrl: "./samples/llm_gemma/gemma.html",
     models: ["Gemma 2B"],
+    tasks: "Text-to-Image",
     webApis: [BACKENDS.WEBGPU],
     framework: "MediaPipe",
     devices: [DEVICES.GPU],
@@ -111,6 +118,7 @@ let SAMPLES = [
     sampleUrl:
       "https://huggingface.co/spaces/Xenova/webgpu-video-background-removal",
     models: ["MODNet"],
+    tasks: "Image-to-Image",
     webApis: [BACKENDS.WEBGPU],
     framework: "Transformers.js",
     devices: [DEVICES.GPU],
@@ -123,6 +131,7 @@ let SAMPLES = [
     sampleUrl:
       "https://huggingface.co/spaces/Xenova/experimental-moondream-webgpu",
     models: ["Moondream"],
+    tasks: "Text Generation",
     webApis: [BACKENDS.WEBGPU],
     framework: "Transformers.js",
     devices: [DEVICES.GPU],
@@ -130,10 +139,11 @@ let SAMPLES = [
   },
   {
     id: "webgpu_phi3_mini",
-    title: "Phi-3-mini",
-    desc: "A private and powerful AI chatbot that runs locally in your browser.",
+    title: "Phi-3",
+    desc: "A private and powerful AI chatbot that runs locally in your browser",
     sampleUrl: "./samples/phi3-webgpu/index.html",
     models: ["Phi 3 Mini 4k Instruct"],
+    tasks: "Text Generation",
     webApis: [BACKENDS.WEBGPU],
     framework: "Transformers.js",
     devices: [DEVICES.GPU],
@@ -145,6 +155,7 @@ let SAMPLES = [
     desc: "Language understanding/generation, multilingual capability, coding, mathematics, etc.",
     sampleUrl: "https://huggingface.co/spaces/Xenova/webgpu-chat-qwen2",
     models: ["Qwen2 0.5B Instruct"],
+    tasks: "Text Generation",
     webApis: [BACKENDS.WEBGPU],
     framework: "Transformers.js",
     devices: [DEVICES.GPU],
@@ -155,7 +166,8 @@ let SAMPLES = [
     title: "Segment Anything",
     desc: `AI model from Meta that can "cut out" any object`,
     sampleUrl: "https://huggingface.co/spaces/Xenova/segment-anything-webgpu",
-    models: ["Sam"],
+    models: ["SAM"],
+    tasks: "Image-to-Image",
     webApis: [BACKENDS.WEBGPU],
     framework: "Transformers.js",
     devices: [DEVICES.GPU],
@@ -163,10 +175,11 @@ let SAMPLES = [
   },
   {
     id: "webgpu_sd_turbo",
-    title: "Stable Diffusion Turbo",
-    desc: "Transform your words into stunning AI visuals with stable diffusion turbo",
+    title: "SD-Turbo",
+    desc: "Transform your words into stunning AI visuals with SD-Turbo",
     sampleUrl: "./samples/stable_diffusion/stable-diffusion.html",
-    models: ["SD Turbo"],
+    models: ["SD-Turbo"],
+    tasks: "Text-to-Image",
     webApis: [BACKENDS.WEBGPU],
     framework: "ONNX Runtime Web",
     devices: [DEVICES.GPU],
@@ -178,6 +191,7 @@ let SAMPLES = [
     desc: "High-performance in-browser LLM inference engine",
     sampleUrl: "https://chat.webllm.ai/",
     models: ["Llama", "Phi", "Mistral", "Gemma", "QWen"],
+    tasks: "Text Generation",
     webApis: [BACKENDS.WEBGPU],
     framework: "TVM",
     devices: [DEVICES.GPU],
@@ -185,10 +199,11 @@ let SAMPLES = [
   },
   {
     id: "webgpu_whisper",
-    title: "Whisper",
+    title: "Whisper Base",
     desc: "Real-time speech recognition with OpenAI Whisper across 100 different languages",
     sampleUrl: "https://huggingface.co/spaces/Xenova/realtime-whisper-webgpu",
-    models: ["Whisper Base"],
+    models: ["Encoder", "Decoder"],
+    tasks: "Automatic Speech Recognition",
     webApis: [BACKENDS.WEBGPU],
     framework: "Transformers.js",
     devices: [DEVICES.GPU],
@@ -203,6 +218,7 @@ let SAMPLES = [
     sampleUrl:
       "https://webmachinelearning.github.io/webnn-samples/code/index.html",
     models: ["Matmul"],
+    tasks: "N/A",
     webApis: [BACKENDS.WEBNN],
     framework: "VanillaJS",
     devices: [DEVICES.CPU],
@@ -215,6 +231,7 @@ let SAMPLES = [
     sampleUrl:
       "https://webmachinelearning.github.io/webnn-samples/facial_landmark_detection/index.html",
     models: ["SSD MobileNet v2 Face"],
+    tasks: "Object Detection",
     webApis: [BACKENDS.WEBNN],
     framework: "VanillaJS",
     devices: [DEVICES.CPU, DEVICES.GPU],
@@ -223,10 +240,11 @@ let SAMPLES = [
   {
     id: "webnn_face_recognition",
     title: "Face Recognition",
-    desc: "Explore the power of face recognition in your browser with the SSD MobileNet V2 Face model",
+    desc: "Explore the power of face recognition in your browser with the SSD MobileNet V2 Face",
     sampleUrl:
       "https://webmachinelearning.github.io/webnn-samples/face_recognition/index.html",
     models: ["SSD MobileNet v2 Face"],
+    tasks: "Object Detection",
     webApis: [BACKENDS.WEBNN],
     framework: "VanillaJS",
     devices: [DEVICES.CPU, DEVICES.GPU],
@@ -239,6 +257,7 @@ let SAMPLES = [
     sampleUrl:
       "https://webmachinelearning.github.io/webnn-samples/image_classification/index.html",
     models: ["MobileNet v2", "SqueezeNet", "ResNet v2 50"],
+    tasks: "Image Classification",
     webApis: [BACKENDS.WEBNN],
     framework: "VanillaJS",
     devices: [DEVICES.CPU, DEVICES.GPU, DEVICES.NPU],
@@ -251,6 +270,7 @@ let SAMPLES = [
     sampleUrl:
       "https://webmachinelearning.github.io/webnn-samples/object_detection/index.html",
     models: ["Tiny Yolo v2", "SSD MobileNet v1"],
+    tasks: "Object Detection",
     webApis: [BACKENDS.WEBNN],
     framework: "VanillaJS",
     devices: [DEVICES.CPU, DEVICES.GPU, DEVICES.NPU],
@@ -258,11 +278,12 @@ let SAMPLES = [
   },
   {
     id: "webnn_sam",
-    title: "WebNN Segment Anything",
-    desc: `Segment Anything is a new AI model from Meta AI that can "cut out" any object.`,
+    title: "Segment Anything",
+    desc: `Segment Anything is a new AI model from Meta AI that can "cut out" any object`,
     sampleUrl:
       "https://microsoft.github.io/webnn-developer-preview/demos/segment-anything/",
-    models: ["Sam"],
+    models: ["SAM"],
+    tasks: "Image-to-Image",
     webApis: [BACKENDS.WEBNN],
     framework: "ONNX Runtime Web",
     devices: [DEVICES.GPU],
@@ -271,10 +292,11 @@ let SAMPLES = [
   {
     id: "webnn_sd_15",
     title: "Stable Diffusion 1.5",
-    desc: "Transform your words into stunning AI visuals with stable diffusion 1.5",
+    desc: "Transform your words into stunning AI visuals with Stable Diffusion 1.5",
     sampleUrl:
       "https://microsoft.github.io/webnn-developer-preview/demos/stable-diffusion-1.5/",
-    models: ["SD 1.5"],
+    models: ["Stable Diffusion 1.5"],
+    tasks: "Text-to-Image",
     webApis: [BACKENDS.WEBNN],
     framework: "ONNX Runtime Web",
     devices: [DEVICES.GPU],
@@ -282,11 +304,12 @@ let SAMPLES = [
   },
   {
     id: "webnn_sd_turbo",
-    title: "Stable Diffusion Turbo",
-    desc: "Transform your words into stunning AI visuals with stable diffusion turbo",
+    title: "SD-Turbo",
+    desc: "Transform your words into stunning AI visuals with SD-Turbo",
     sampleUrl:
       "https://microsoft.github.io/webnn-developer-preview/demos/sd-turbo/",
-    models: ["SD Turbo"],
+    models: ["SD-Turbo"],
+    tasks: "Text-to-Image",
     webApis: [BACKENDS.WEBNN],
     framework: "ONNX Runtime Web",
     devices: [DEVICES.GPU],
@@ -299,6 +322,7 @@ let SAMPLES = [
     sampleUrl:
       "https://webmachinelearning.github.io/webnn-samples/semantic_segmentation/index.html",
     models: ["DeepLab v3", "MobileNet v2"],
+    tasks: "Image Segmentation",
     webApis: [BACKENDS.WEBNN],
     framework: "VanillaJS",
     devices: [DEVICES.CPU, DEVICES.GPU],
@@ -307,10 +331,11 @@ let SAMPLES = [
   {
     id: "webnn_whisper_base",
     title: "Whisper Base",
-    desc: "Automatic speech recognition (ASR) and speech translation.",
+    desc: "Automatic speech recognition (ASR) and speech translation",
     sampleUrl:
       "https://microsoft.github.io/webnn-developer-preview/demos/whisper-base/",
     models: ["Encoder", "Decoder"],
+    tasks: "Automatic Speech Recognition",
     webApis: [BACKENDS.WEBNN],
     framework: "ONNX Runtime Web",
     devices: [DEVICES.GPU, DEVICES.NPU],
@@ -356,8 +381,8 @@ function constructSampleHTML(samples) {
   const sampleCardHTML = samples
     .map((sample) => {
       return `
-            <a class="group relative flex h-[280px] 2xl:h-[360px]  flex-col gap-6 rounded-xl overflow-hidden" href="${sample.sampleUrl}" ${sample.sampleUrl.startsWith("https") ? `target = "_blank"` : ""}>
-            <div class="absolute inset-0 h-[180px] 2xl:h-[220px]  rounded-xl overflow-hidden group-hover:h-full w-full duration-[250ms]">
+            <a class="group relative flex h-[250px] 2xl:h-[360px]  flex-col gap-6 rounded-xl overflow-hidden" href="${sample.sampleUrl}" ${sample.sampleUrl.startsWith("https") ? `target = "_blank"` : ""}>
+            <div class="absolute inset-0 h-1/2 2xl:h-[220px]  rounded-xl overflow-hidden group-hover:h-full w-full duration-[250ms]">
               <video
               poster="${baseUrl}assets/${sample.id}.png"
               class="h-full w-full rounded-xl object-cover group-hover:scale-125 duration-1000"
@@ -369,54 +394,58 @@ function constructSampleHTML(samples) {
 
             </div>
             </div>
-            <div class="px-3 mt-auto w-full h-[100px] 2xl:h-[140px] flex flex-col">
+            <div class="px-3 mt-auto w-full h-1/2 2xl:h-[140px] flex flex-col">
               <div
               class="flex items-center text-xl w-full group-hover:text-white group-hover:z-50 group-hover:translate-y-[1.5rem] group-hover:drop-shadow-xl duration-[350ms] h-full"
               >
 
-                <div class="flex flex-col h-full w-full  group-hover:gap-y-3">
-                  <div class="font-bold text-stone-50 2xl:group-hover:text-2xl group-hover:text-xl h-1/5 2xl:text-2xl/6 text-lg/5 duration-[350ms] 2xl:pt-1 pt-0.5">${sample.title}
+                <div class="flex flex-col h-full w-full">
+                  <div class="font-bold text-stone-50 2xl:group-hover:text-2xl group-hover:text-xl  2xl:text-2xl/6 text-lg/5 duration-[350ms] 2xl:pt-1 pt-3 drop-shadow-md">${sample.title}
                   </div>
 
-                  <div class="group-hover:hidden h-2/5 2xl:pt-2 pt-1 2xl:text-lg/5 text-xs/3 font-normal text-stone-300 font-sans">
+                  <div class="group-hover:hidden 2xl:pt-3 pt-3 2xl:text-lg/5 text-xs/3 font-normal text-stone-300 font-sans">
                     <p>
                     ${sample.desc}
                     </p>
                   </div>
 
-                <div class="flex flex-wrap h-fit 2xl:gap-x-2 gap-x-1 gap-y-0.5 text-xs 2xl:text-sm 2xl:pb-2 pb-1">
+                <div class="flex flex-wrap h-fit pt-3 2xl:gap-x-2 gap-x-1 text-[10px]/4 gap-y-1 2xl:text-sm">
+
+                <div class="flex 2xl:font-medium rounded-2xl bg-fuchsia-600/60 px-2 text-stone-50 w-auto">${sample.tasks}</div>
+
               ${
                 sample.models.length > 0
                   ? ` ${sample.models
                       .map(
                         (model) =>
-                          `<div class="flex 2xl:font-medium rounded-md bg-stone-600/80 px-1 py-0.5 text-stone-50 ring-1 ring-inset ring-stone-500/10 w-auto">${model}</div>`
+                          `<div class="flex 2xl:font-medium rounded-2xl bg-stone-600/80 px-2 text-stone-50 w-auto">${model}</div>`
                       )
                       .join("")}`
                   : ``
               }
+
+                  <div
+                    class="flex 2xl:font-medium rounded-2xl bg-teal-600/80 px-2 text-stone-50">${sample.framework}
+                  </div>
+
                   ${
                     sample.webApis.length > 0
                       ? `
                  ${sample.webApis
                    .map(
                      (api) =>
-                       `<div class="flex 2xl:font-medium rounded-md bg-indigo-600/80 px-1 py-0.5 text-stone-50 ring-1 ring-inset ring-stone-500/10 w-auto">${api}</div>`
+                       `<div class="flex 2xl:font-medium rounded-2xl bg-indigo-600/80 px-2 text-stone-50">${api}</div>`
                    )
                    .join("")}`
                       : ``
                   }
-
-                   <div
-                   class="flex 2xl:font-medium rounded-md bg-teal-600/80 px-1 py-0.5 text-stone-50 ring-1 ring-inset  ring-stone-500/10 w-auto">${sample.framework}
-                  </div>
 
                   ${
                     sample.devices.length > 0
                       ? `${sample.devices
                           .map(
                             (device) =>
-                              `<div class="flex 2xl:font-medium rounded-md bg-sky-600/80 px-1 py-0.5 text-stone-50 ring-1 ring-inset ring-stone-500/10 w-auto">${device}</div>`
+                              `<div class="flex 2xl:font-medium rounded-2xl bg-sky-600/80 px-2 text-stone-50">${device}</div>`
                           )
                           .join("")}`
                       : ``
