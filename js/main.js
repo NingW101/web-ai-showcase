@@ -224,32 +224,7 @@ let SAMPLES = [
   //   devices: [DEVICES.CPU],
   //   update: "2024-06-08"
   // },
-  {
-    id: "webnn_face_landmark_detection",
-    title: "Facial Landmark Detection",
-    desc: "See how facial landmark detection works with the SSD MobileNet V2 Face models",
-    sampleUrl:
-      "https://webmachinelearning.github.io/webnn-samples/facial_landmark_detection/index.html",
-    models: ["SSD MobileNet v2 Face"],
-    tasks: "Object Detection",
-    webApis: [BACKENDS.WEBNN],
-    framework: "VanillaJS",
-    devices: [DEVICES.CPU, DEVICES.GPU],
-    update: "2024-06-08"
-  },
-  {
-    id: "webnn_face_recognition",
-    title: "Face Recognition",
-    desc: "Explore the power of face recognition in your browser with the SSD MobileNet V2 Face",
-    sampleUrl:
-      "https://webmachinelearning.github.io/webnn-samples/face_recognition/index.html",
-    models: ["SSD MobileNet v2 Face"],
-    tasks: "Object Detection",
-    webApis: [BACKENDS.WEBNN],
-    framework: "VanillaJS",
-    devices: [DEVICES.CPU, DEVICES.GPU],
-    update: "2024-06-08"
-  },
+
   {
     id: "webnn_image_classification",
     title: "Image Classification",
@@ -323,6 +298,32 @@ let SAMPLES = [
       "https://webmachinelearning.github.io/webnn-samples/semantic_segmentation/index.html",
     models: ["DeepLab v3", "MobileNet v2"],
     tasks: "Image Segmentation",
+    webApis: [BACKENDS.WEBNN],
+    framework: "VanillaJS",
+    devices: [DEVICES.CPU, DEVICES.GPU],
+    update: "2024-06-08"
+  },
+  {
+    id: "webnn_face_recognition",
+    title: "Face Recognition",
+    desc: "Explore the power of face recognition in your browser with the SSD MobileNet V2 Face",
+    sampleUrl:
+      "https://webmachinelearning.github.io/webnn-samples/face_recognition/index.html",
+    models: ["SSD MobileNet v2 Face"],
+    tasks: "Object Detection",
+    webApis: [BACKENDS.WEBNN],
+    framework: "VanillaJS",
+    devices: [DEVICES.CPU, DEVICES.GPU],
+    update: "2024-06-08"
+  },
+  {
+    id: "webnn_face_landmark_detection",
+    title: "Facial Landmark Detection",
+    desc: "See how facial landmark detection works with the SSD MobileNet V2 Face models",
+    sampleUrl:
+      "https://webmachinelearning.github.io/webnn-samples/facial_landmark_detection/index.html",
+    models: ["SSD MobileNet v2 Face"],
+    tasks: "Object Detection",
     webApis: [BACKENDS.WEBNN],
     framework: "VanillaJS",
     devices: [DEVICES.CPU, DEVICES.GPU],
