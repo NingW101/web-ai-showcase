@@ -24,56 +24,56 @@ const DEVICES = {
 // To add a new sample, please put <id>.png and <id>.mp4 in the public/assets folder.
 let SAMPLES = [
   // WASM
-  {
-    id: "wasm_image_to_text",
-    title: "ViT GPT2",
-    desc: "Generate text from image",
-    sampleUrl: "./samples/image_to_text/index.html",
-    models: ["ViT GPT2"],
-    tasks: "Image-to-Text",
-    webApis: [BACKENDS.WASM],
-    framework: "Transformers.js",
-    devices: [DEVICES.CPU],
-    update: "2024-06-08"
-  },
-  {
-    id: "wasm_question_answering",
-    title: "DistilBERT",
-    desc: "Answer question from context",
-    sampleUrl: "./samples/question_answering/index.html",
-    models: ["DistilBERT"],
-    tasks: "Fill-Mask",
-    webApis: [BACKENDS.WASM],
-    framework: "Transformers.js",
-    devices: [DEVICES.CPU],
-    update: "2024-06-08"
-  },
-  {
-    id: "wasm_summarization",
-    title: "DistilBART",
-    desc: "Generate summaries of paragraphs",
-    sampleUrl: "./samples/summarization/index.html",
-    models: ["DistilBART"],
-    tasks: "Summarization",
-    webApis: [BACKENDS.WASM],
-    framework: "Transformers.js",
-    devices: [DEVICES.CPU],
-    update: "2024-06-08"
-  },
+  // {
+  //   id: "wasm_image_to_text",
+  //   title: "ViT GPT2",
+  //   desc: "Generate text from image",
+  //   sampleUrl: "./samples/image_to_text/index.html",
+  //   models: ["ViT GPT2"],
+  //   tasks: "Image-to-Text",
+  //   webApis: [BACKENDS.WASM],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.CPU],
+  //   update: "2024-06-08"
+  // },
+  // {
+  //   id: "wasm_question_answering",
+  //   title: "DistilBERT",
+  //   desc: "Answer question from context",
+  //   sampleUrl: "./samples/question_answering/index.html",
+  //   models: ["DistilBERT"],
+  //   tasks: "Fill-Mask",
+  //   webApis: [BACKENDS.WASM],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.CPU],
+  //   update: "2024-06-08"
+  // },
+  // {
+  //   id: "wasm_summarization",
+  //   title: "DistilBART",
+  //   desc: "Generate summaries of paragraphs",
+  //   sampleUrl: "./samples/summarization/index.html",
+  //   models: ["DistilBART"],
+  //   tasks: "Summarization",
+  //   webApis: [BACKENDS.WASM],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.CPU],
+  //   update: "2024-06-08"
+  // },
 
   // WebGPU
-  {
-    id: "webgpu_background_removal",
-    title: "RMBG",
-    desc: "Remove the background of an image",
-    sampleUrl: "./samples/image_background_removal/index.html",
-    models: ["RMBG v1.4"],
-    tasks: "Image Segmentation",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "Transformers.js",
-    devices: [DEVICES.GPU],
-    update: "2024-06-08"
-  },
+  // {
+  //   id: "webgpu_background_removal",
+  //   title: "RMBG",
+  //   desc: "Remove the background of an image",
+  //   sampleUrl: "./samples/image_background_removal/index.html",
+  //   models: ["RMBG v1.4"],
+  //   tasks: "Image Segmentation",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
   // {
   //   id: "webgpu_benchmark",
   //   title: "Benchmark",
@@ -99,18 +99,18 @@ let SAMPLES = [
   //   devices: [DEVICES.GPU],
   //   update: "2024-06-08"
   // },
-  {
-    id: "webgpu_llm_gemma",
-    title: "Gemma",
-    desc: "LLM-Gemma",
-    sampleUrl: "./samples/llm_gemma/gemma.html",
-    models: ["Gemma 2B"],
-    tasks: "Text-to-Image",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "MediaPipe",
-    devices: [DEVICES.GPU],
-    update: "2024-06-08"
-  },
+  // {
+  //   id: "webgpu_llm_gemma",
+  //   title: "Gemma",
+  //   desc: "LLM-Gemma",
+  //   sampleUrl: "./samples/llm_gemma/gemma.html",
+  //   models: ["Gemma 2B"],
+  //   tasks: "Text-to-Image",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "MediaPipe",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
   // {
   //   id: "webgpu_modnet",
   //   title: "MODNet",
@@ -137,18 +137,18 @@ let SAMPLES = [
   //   devices: [DEVICES.GPU],
   //   update: "2024-06-10"
   // },
-  {
-    id: "webgpu_phi3_mini",
-    title: "Phi-3",
-    desc: "A private and powerful AI chatbot that runs locally in your browser",
-    sampleUrl: "./samples/phi3-webgpu/index.html",
-    models: ["Phi 3 Mini 4k Instruct"],
-    tasks: "Text Generation",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "Transformers.js",
-    devices: [DEVICES.GPU],
-    update: "2024-06-09"
-  },
+  // {
+  //   id: "webgpu_phi3_mini",
+  //   title: "Phi-3",
+  //   desc: "A private and powerful AI chatbot that runs locally in your browser",
+  //   sampleUrl: "./samples/phi3-webgpu/index.html",
+  //   models: ["Phi 3 Mini 4k Instruct"],
+  //   tasks: "Text Generation",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-09"
+  // },
   // {
   //   id: "webgpu_qwen2",
   //   title: "Qwen2",
@@ -173,18 +173,18 @@ let SAMPLES = [
   //   devices: [DEVICES.GPU],
   //   update: "2024-06-08"
   // },
-  {
-    id: "webgpu_sd_turbo",
-    title: "SD-Turbo",
-    desc: "Transform your words into stunning AI visuals with SD-Turbo",
-    sampleUrl: "./samples/stable_diffusion/stable-diffusion.html",
-    models: ["SD-Turbo"],
-    tasks: "Text-to-Image",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "ONNX Runtime Web",
-    devices: [DEVICES.GPU],
-    update: "2024-06-08"
-  },
+  // {
+  //   id: "webgpu_sd_turbo",
+  //   title: "SD-Turbo",
+  //   desc: "Transform your words into stunning AI visuals with SD-Turbo",
+  //   sampleUrl: "./samples/stable_diffusion/stable-diffusion.html",
+  //   models: ["SD-Turbo"],
+  //   tasks: "Text-to-Image",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "ONNX Runtime Web",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
   // {
   //   id: "webgpu_webllm",
   //   title: "WebLLM",
@@ -197,6 +197,7 @@ let SAMPLES = [
   //   devices: [DEVICES.GPU],
   //   update: "2024-06-09"
   // },
+
   // {
   //   id: "webgpu_whisper",
   //   title: "Whisper Base",
