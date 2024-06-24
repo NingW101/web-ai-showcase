@@ -74,31 +74,31 @@ let SAMPLES = [
     devices: [DEVICES.GPU],
     update: "2024-06-08"
   },
-  {
-    id: "webgpu_benchmark",
-    title: "Benchmark",
-    desc: "Benchmark to compare perf of WebGPU vs Wasm",
-    sampleUrl:
-      "https://huggingface.co/spaces/Xenova/webgpu-embedding-benchmark",
-    models: ["All MiniLM L6 v2"],
-    tasks: "N/A",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "Transformers.js",
-    devices: [DEVICES.GPU],
-    update: "2024-06-08"
-  },
-  {
-    id: "webgpu_clip",
-    title: "OpenAI Clip",
-    desc: "Learn about what contributes to robustness in computer vision tasks",
-    sampleUrl: "https://huggingface.co/spaces/Xenova/webgpu-clip",
-    models: ["Clip"],
-    tasks: "Zero-shot Image Classification",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "Transformers.js",
-    devices: [DEVICES.GPU],
-    update: "2024-06-08"
-  },
+  // {
+  //   id: "webgpu_benchmark",
+  //   title: "Benchmark",
+  //   desc: "Benchmark to compare perf of WebGPU vs Wasm",
+  //   sampleUrl:
+  //     "https://huggingface.co/spaces/Xenova/webgpu-embedding-benchmark",
+  //   models: ["All MiniLM L6 v2"],
+  //   tasks: "N/A",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
+  // {
+  //   id: "webgpu_clip",
+  //   title: "OpenAI Clip",
+  //   desc: "Learn about what contributes to robustness in computer vision tasks",
+  //   sampleUrl: "https://huggingface.co/spaces/Xenova/webgpu-clip",
+  //   models: ["Clip"],
+  //   tasks: "Zero-shot Image Classification",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
   {
     id: "webgpu_llm_gemma",
     title: "Gemma",
@@ -111,32 +111,32 @@ let SAMPLES = [
     devices: [DEVICES.GPU],
     update: "2024-06-08"
   },
-  {
-    id: "webgpu_modnet",
-    title: "MODNet",
-    desc: "Realtime Video Background Removal",
-    sampleUrl:
-      "https://huggingface.co/spaces/Xenova/webgpu-video-background-removal",
-    models: ["MODNet"],
-    tasks: "Image-to-Image",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "Transformers.js",
-    devices: [DEVICES.GPU],
-    update: "2024-06-08"
-  },
-  {
-    id: "webgpu_moondream",
-    title: "Moondream",
-    desc: "Vision-Language Model",
-    sampleUrl:
-      "https://huggingface.co/spaces/Xenova/experimental-moondream-webgpu",
-    models: ["Moondream"],
-    tasks: "Text Generation",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "Transformers.js",
-    devices: [DEVICES.GPU],
-    update: "2024-06-10"
-  },
+  // {
+  //   id: "webgpu_modnet",
+  //   title: "MODNet",
+  //   desc: "Realtime Video Background Removal",
+  //   sampleUrl:
+  //     "https://huggingface.co/spaces/Xenova/webgpu-video-background-removal",
+  //   models: ["MODNet"],
+  //   tasks: "Image-to-Image",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
+  // {
+  //   id: "webgpu_moondream",
+  //   title: "Moondream",
+  //   desc: "Vision-Language Model",
+  //   sampleUrl:
+  //     "https://huggingface.co/spaces/Xenova/experimental-moondream-webgpu",
+  //   models: ["Moondream"],
+  //   tasks: "Text Generation",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-10"
+  // },
   {
     id: "webgpu_phi3_mini",
     title: "Phi-3",
@@ -149,30 +149,30 @@ let SAMPLES = [
     devices: [DEVICES.GPU],
     update: "2024-06-09"
   },
-  {
-    id: "webgpu_qwen2",
-    title: "Qwen2",
-    desc: "Language understanding/generation, multilingual capability, coding, mathematics, etc.",
-    sampleUrl: "https://huggingface.co/spaces/Xenova/webgpu-chat-qwen2",
-    models: ["Qwen2 0.5B Instruct"],
-    tasks: "Text Generation",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "Transformers.js",
-    devices: [DEVICES.GPU],
-    update: "2024-06-10"
-  },
-  {
-    id: "webgpu_sam",
-    title: "Segment Anything",
-    desc: `AI model from Meta that can "cut out" any object`,
-    sampleUrl: "https://huggingface.co/spaces/Xenova/segment-anything-webgpu",
-    models: ["SAM"],
-    tasks: "Image-to-Image",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "Transformers.js",
-    devices: [DEVICES.GPU],
-    update: "2024-06-08"
-  },
+  // {
+  //   id: "webgpu_qwen2",
+  //   title: "Qwen2",
+  //   desc: "Language understanding/generation, multilingual capability, coding, mathematics, etc.",
+  //   sampleUrl: "https://huggingface.co/spaces/Xenova/webgpu-chat-qwen2",
+  //   models: ["Qwen2 0.5B Instruct"],
+  //   tasks: "Text Generation",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-10"
+  // },
+  // {
+  //   id: "webgpu_sam",
+  //   title: "Segment Anything",
+  //   desc: `AI model from Meta that can "cut out" any object`,
+  //   sampleUrl: "https://huggingface.co/spaces/Xenova/segment-anything-webgpu",
+  //   models: ["SAM"],
+  //   tasks: "Image-to-Image",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
   {
     id: "webgpu_sd_turbo",
     title: "SD-Turbo",
@@ -185,45 +185,45 @@ let SAMPLES = [
     devices: [DEVICES.GPU],
     update: "2024-06-08"
   },
-  {
-    id: "webgpu_webllm",
-    title: "WebLLM",
-    desc: "High-performance in-browser LLM inference engine",
-    sampleUrl: "https://chat.webllm.ai/",
-    models: ["Llama", "Phi", "Mistral", "Gemma", "QWen"],
-    tasks: "Text Generation",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "TVM",
-    devices: [DEVICES.GPU],
-    update: "2024-06-09"
-  },
-  {
-    id: "webgpu_whisper",
-    title: "Whisper Base",
-    desc: "Real-time speech recognition with OpenAI Whisper across 100 different languages",
-    sampleUrl: "https://huggingface.co/spaces/Xenova/realtime-whisper-webgpu",
-    models: ["Encoder", "Decoder"],
-    tasks: "Automatic Speech Recognition",
-    webApis: [BACKENDS.WEBGPU],
-    framework: "Transformers.js",
-    devices: [DEVICES.GPU],
-    update: "2024-06-10"
-  },
+  // {
+  //   id: "webgpu_webllm",
+  //   title: "WebLLM",
+  //   desc: "High-performance in-browser LLM inference engine",
+  //   sampleUrl: "https://chat.webllm.ai/",
+  //   models: ["Llama", "Phi", "Mistral", "Gemma", "QWen"],
+  //   tasks: "Text Generation",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "TVM",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-09"
+  // },
+  // {
+  //   id: "webgpu_whisper",
+  //   title: "Whisper Base",
+  //   desc: "Real-time speech recognition with OpenAI Whisper across 100 different languages",
+  //   sampleUrl: "https://huggingface.co/spaces/Xenova/realtime-whisper-webgpu",
+  //   models: ["Encoder", "Decoder"],
+  //   tasks: "Automatic Speech Recognition",
+  //   webApis: [BACKENDS.WEBGPU],
+  //   framework: "Transformers.js",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-10"
+  // },
 
   // WebNN
-  {
-    id: "webnn_code_editor",
-    title: "Code Editor",
-    desc: "Test out some sample code directly in a compatible browser",
-    sampleUrl:
-      "https://webmachinelearning.github.io/webnn-samples/code/index.html",
-    models: ["Matmul"],
-    tasks: "N/A",
-    webApis: [BACKENDS.WEBNN],
-    framework: "VanillaJS",
-    devices: [DEVICES.CPU],
-    update: "2024-06-08"
-  },
+  // {
+  //   id: "webnn_code_editor",
+  //   title: "Code Editor",
+  //   desc: "Test out some sample code directly in a compatible browser",
+  //   sampleUrl:
+  //     "https://webmachinelearning.github.io/webnn-samples/code/index.html",
+  //   models: ["Matmul"],
+  //   tasks: "N/A",
+  //   webApis: [BACKENDS.WEBNN],
+  //   framework: "VanillaJS",
+  //   devices: [DEVICES.CPU],
+  //   update: "2024-06-08"
+  // },
   {
     id: "webnn_face_landmark_detection",
     title: "Facial Landmark Detection",
@@ -276,45 +276,45 @@ let SAMPLES = [
     devices: [DEVICES.CPU, DEVICES.GPU, DEVICES.NPU],
     update: "2024-06-08"
   },
-  {
-    id: "webnn_sam",
-    title: "Segment Anything",
-    desc: `Segment Anything is a new AI model from Meta AI that can "cut out" any object`,
-    sampleUrl:
-      "https://microsoft.github.io/webnn-developer-preview/demos/segment-anything/",
-    models: ["SAM"],
-    tasks: "Image-to-Image",
-    webApis: [BACKENDS.WEBNN],
-    framework: "ONNX Runtime Web",
-    devices: [DEVICES.GPU],
-    update: "2024-06-08"
-  },
-  {
-    id: "webnn_sd_15",
-    title: "Stable Diffusion 1.5",
-    desc: "Transform your words into stunning AI visuals with Stable Diffusion 1.5",
-    sampleUrl:
-      "https://microsoft.github.io/webnn-developer-preview/demos/stable-diffusion-1.5/",
-    models: ["Stable Diffusion 1.5"],
-    tasks: "Text-to-Image",
-    webApis: [BACKENDS.WEBNN],
-    framework: "ONNX Runtime Web",
-    devices: [DEVICES.GPU],
-    update: "2024-06-08"
-  },
-  {
-    id: "webnn_sd_turbo",
-    title: "SD-Turbo",
-    desc: "Transform your words into stunning AI visuals with SD-Turbo",
-    sampleUrl:
-      "https://microsoft.github.io/webnn-developer-preview/demos/sd-turbo/",
-    models: ["SD-Turbo"],
-    tasks: "Text-to-Image",
-    webApis: [BACKENDS.WEBNN],
-    framework: "ONNX Runtime Web",
-    devices: [DEVICES.GPU],
-    update: "2024-06-08"
-  },
+  // {
+  //   id: "webnn_sam",
+  //   title: "Segment Anything",
+  //   desc: `Segment Anything is a new AI model from Meta AI that can "cut out" any object`,
+  //   sampleUrl:
+  //     "https://microsoft.github.io/webnn-developer-preview/demos/segment-anything/",
+  //   models: ["SAM"],
+  //   tasks: "Image-to-Image",
+  //   webApis: [BACKENDS.WEBNN],
+  //   framework: "ONNX Runtime Web",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
+  // {
+  //   id: "webnn_sd_15",
+  //   title: "Stable Diffusion 1.5",
+  //   desc: "Transform your words into stunning AI visuals with Stable Diffusion 1.5",
+  //   sampleUrl:
+  //     "https://microsoft.github.io/webnn-developer-preview/demos/stable-diffusion-1.5/",
+  //   models: ["Stable Diffusion 1.5"],
+  //   tasks: "Text-to-Image",
+  //   webApis: [BACKENDS.WEBNN],
+  //   framework: "ONNX Runtime Web",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
+  // {
+  //   id: "webnn_sd_turbo",
+  //   title: "SD-Turbo",
+  //   desc: "Transform your words into stunning AI visuals with SD-Turbo",
+  //   sampleUrl:
+  //     "https://microsoft.github.io/webnn-developer-preview/demos/sd-turbo/",
+  //   models: ["SD-Turbo"],
+  //   tasks: "Text-to-Image",
+  //   webApis: [BACKENDS.WEBNN],
+  //   framework: "ONNX Runtime Web",
+  //   devices: [DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
   {
     id: "webnn_semantic_segmentation",
     title: "Semantic Segmentation",
@@ -327,20 +327,20 @@ let SAMPLES = [
     framework: "VanillaJS",
     devices: [DEVICES.CPU, DEVICES.GPU],
     update: "2024-06-08"
-  },
-  {
-    id: "webnn_whisper_base",
-    title: "Whisper Base",
-    desc: "Automatic speech recognition (ASR) and speech translation",
-    sampleUrl:
-      "https://microsoft.github.io/webnn-developer-preview/demos/whisper-base/",
-    models: ["Encoder", "Decoder"],
-    tasks: "Automatic Speech Recognition",
-    webApis: [BACKENDS.WEBNN],
-    framework: "ONNX Runtime Web",
-    devices: [DEVICES.GPU, DEVICES.NPU],
-    update: "2024-06-08"
   }
+  // {
+  //   id: "webnn_whisper_base",
+  //   title: "Whisper Base",
+  //   desc: "Automatic speech recognition (ASR) and speech translation",
+  //   sampleUrl:
+  //     "https://microsoft.github.io/webnn-developer-preview/demos/whisper-base/",
+  //   models: ["Encoder", "Decoder"],
+  //   tasks: "Automatic Speech Recognition",
+  //   webApis: [BACKENDS.WEBNN],
+  //   framework: "ONNX Runtime Web",
+  //   devices: [DEVICES.GPU, DEVICES.NPU],
+  //   update: "2024-06-08"
+  // }
 ];
 
 // the phi3 project only available in `production` mode
@@ -351,7 +351,18 @@ if (import.meta.env.MODE === "development") {
   SAMPLES = SAMPLES.filter((sample) => sample.id !== "webgpu_phi3_mini");
 }
 
-SAMPLES = SAMPLES.sort((a, b) => (a.update > b.update ? -1 : 1));
+SAMPLES = SAMPLES.sort((a, b) => {
+  const aContainsWebnn = a.webApis.includes(BACKENDS.WEBNN);
+  const bContainsWebnn = b.webApis.includes(BACKENDS.WEBNN);
+
+  if (aContainsWebnn && !bContainsWebnn) {
+    return -1;
+  } else if (!aContainsWebnn && bContainsWebnn) {
+    return 1;
+  }
+
+  return a.update > b.update ? -1 : 1;
+});
 
 let displayedSamples = SAMPLES;
 
