@@ -1,0 +1,30 @@
+diff --git a/node_modules/@xenova/transformers/src/utils/hub.js b/node_modules/@xenova/transformers/src/utils/hub.js
+index 32407be..2702479 100644
+--- a/node_modules/@xenova/transformers/src/utils/hub.js
++++ b/node_modules/@xenova/transformers/src/utils/hub.js
+@@ -651,6 +651,17 @@ async function readResponse(response, progress_callback) {
+  * @returns {string} A string representing the joined path.
+  */
+ function pathJoin(...parts) {
++    // for
++    let filePathParam = '';
++    if (parts.length > 0) {
++        const lastPart = parts[parts.length - 1];
++        const filePathIndex = lastPart.indexOf('FilePath=');
++        if (filePathIndex !== -1) {
++            filePathParam = lastPart.substring(filePathIndex);
++            parts[parts.length - 1] = lastPart.substring(0, filePathIndex);
++        }
++    }
++
+     // https://stackoverflow.com/a/55142565
+     parts = parts.map((part, index) => {
+         if (index) {
+@@ -661,5 +672,6 @@ function pathJoin(...parts) {
+         }
+         return part;
+     })
+-    return parts.join('/');
++
++    return parts.join('/') + (filePathParam ? '?' + filePathParam : '');
+ }
