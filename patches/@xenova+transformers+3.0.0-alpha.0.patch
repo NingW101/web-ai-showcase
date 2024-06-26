@@ -1,30 +1,49 @@
+diff --git a/node_modules/@xenova/transformers/src/models.js b/node_modules/@xenova/transformers/src/models.js
+index 32f615f..720173b 100644
+--- a/node_modules/@xenova/transformers/src/models.js
++++ b/node_modules/@xenova/transformers/src/models.js
+@@ -42,6 +42,7 @@ import {
+     AutoConfig,
+ } from './configs.js';
+ 
++
+ import {
+     deviceToExecutionProviders,
+     createInferenceSession,
+@@ -95,6 +96,8 @@ import {
+ 
+ import { medianFilter } from './utils/maths.js';
+ 
++import {env} from "./env.js"
++
+ //////////////////////////////////////////////////
+ // Model types: used internally
+ const MODEL_TYPES = {
+@@ -141,7 +144,10 @@ async function constructSession(pretrained_model_name_or_path, fileName, options
+ 
+     // Construct the model file name
+     const suffix = DEFAULT_DTYPE_SUFFIX_MAPPING[dtype];
+-    const modelFileName = `onnx/${fileName}${suffix}.onnx`;
++    let modelFileName = fileName;
++    if (env.remoteHost !== "https://modelscope.cn") {
++        modelFileName = `onnx/${fileName}${suffix}.onnx`;
++    }
+ 
+     const buffer = await getModelFile(pretrained_model_name_or_path, modelFileName, true, options);
+ 
 diff --git a/node_modules/@xenova/transformers/src/utils/hub.js b/node_modules/@xenova/transformers/src/utils/hub.js
-index 32407be..2702479 100644
+index 32407be..49e882c 100644
 --- a/node_modules/@xenova/transformers/src/utils/hub.js
 +++ b/node_modules/@xenova/transformers/src/utils/hub.js
-@@ -651,6 +651,17 @@ async function readResponse(response, progress_callback) {
-  * @returns {string} A string representing the joined path.
-  */
- function pathJoin(...parts) {
-+    // for
-+    let filePathParam = '';
-+    if (parts.length > 0) {
-+        const lastPart = parts[parts.length - 1];
-+        const filePathIndex = lastPart.indexOf('FilePath=');
-+        if (filePathIndex !== -1) {
-+            filePathParam = lastPart.substring(filePathIndex);
-+            parts[parts.length - 1] = lastPart.substring(0, filePathIndex);
-+        }
-+    }
-+
-     // https://stackoverflow.com/a/55142565
-     parts = parts.map((part, index) => {
-         if (index) {
-@@ -661,5 +672,6 @@ function pathJoin(...parts) {
-         }
-         return part;
-     })
--    return parts.join('/');
-+
-+    return parts.join('/') + (filePathParam ? '?' + filePathParam : '');
- }
+@@ -402,9 +402,8 @@ export async function getModelFile(path_or_repo_id, filename, fatal = true, opti
+         env.remoteHost,
+         env.remotePathTemplate
+             .replaceAll('{model}', path_or_repo_id)
+-            .replaceAll('{revision}', encodeURIComponent(revision)),
+-        filename
+-    );
++            .replaceAll('{revision}', encodeURIComponent(revision))
++    ) + "&FilePath=" + filename;
+ 
+     // Choose cache key for filesystem cache
+     // When using the main revision (default), we use the request URL as the cache key.

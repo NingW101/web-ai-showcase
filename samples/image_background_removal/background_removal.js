@@ -29,6 +29,9 @@ import exampleImg from "/assets/person.avif";
 setupNavigBar("../..");
 const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
 
+env.remoteHost = "https://modelscope.cn";
+env.remotePathTemplate = "/api/v1/models/{model}/repo?Revision={revision}";
+
 // Since we will download the model from the Hugging Face Hub, we can skip the local model check
 env.allowLocalModels = true;
 env.localModelPath = baseUrl + TRANSFORMER_LOCAL_MODEL_PATH;
@@ -327,32 +330,38 @@ async function predict(url) {
   try {
     // if model and processor are not ready, initialize them first
     if (!model) {
-      model = await AutoModel.from_pretrained("briaai/RMBG-1.4", {
+      model = await AutoModel.from_pretrained("AI-ModelScope/RMBG-1.4", {
         // Do not require config.json to be present in the repository
         progress_callback: model_progress_cb_handler,
         device: "webgpu",
-        dtype: "fp32"
+        dtype: "fp32",
+        revision: "master",
+        model_file_name: "onnx%2Fmodel.onnx"
       });
     }
 
     if (!processor) {
-      processor = await AutoProcessor.from_pretrained("briaai/RMBG-1.4", {
-        // Do not require config.json to be present in the repository
-        config: {
-          do_normalize: true,
-          do_pad: false,
-          do_rescale: true,
-          do_resize: true,
-          image_mean: [0.5, 0.5, 0.5],
-          feature_extractor_type: "ImageFeatureExtractor",
-          image_std: [1, 1, 1],
-          resample: 2,
-          rescale_factor: 0.00392156862745098,
-          size: { width: 1024, height: 1024 }
-        },
-        device: "webgpu",
-        dtype: "fp32"
-      });
+      processor = await AutoProcessor.from_pretrained(
+        "AI-ModelScope/RMBG-1.4",
+        {
+          // Do not require config.json to be present in the repository
+          config: {
+            do_normalize: true,
+            do_pad: false,
+            do_rescale: true,
+            do_resize: true,
+            image_mean: [0.5, 0.5, 0.5],
+            feature_extractor_type: "ImageFeatureExtractor",
+            image_std: [1, 1, 1],
+            resample: 2,
+            rescale_factor: 0.00392156862745098,
+            size: { width: 1024, height: 1024 }
+          },
+          revision: "master",
+          device: "webgpu",
+          dtype: "fp32"
+        }
+      );
     }
 
     // Read image

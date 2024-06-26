@@ -11,7 +11,8 @@
     "prod:modelscope": "node update_config.js && npm run build && node build_sub_proj.js modelscope && npm run copy-models",
     "prod:use-remote-models": "node update_config.js remote-models && npm run build && node build_sub_proj.js && npm run copy-models",
     "prod": "node update_config.js && npm run build && npm run fetch-models && node build_sub_proj.js && npm run copy-models",
-    "startup": "cd ./dist && http-server -S -C ../cert.pem -K ../key.pem -o"
+    "startup": "cd ./dist && http-server -S -C ../cert.pem -K ../key.pem -o",
+    "postinstall": "patch-package"
   },
   "type": "module",
   "devDependencies": {
@@ -22,6 +23,8 @@
     "fs-extra": "^11.2.0",
     "http-server": "^14.1.1",
     "mkdirp": "^3.0.1",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0",
     "prettier": "^3.2.5",
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.7",
