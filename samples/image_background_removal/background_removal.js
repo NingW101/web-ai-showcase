@@ -76,10 +76,11 @@ function model_progress_cb_handler(message) {
    */
   const fileName = message.file;
   let statusBarElement = null;
-  if (fileName) {
-    statusBarElement = document.getElementById(
-      `${fileName.match(/\/?([^/.]+?)(?:\.[^/.]+)?$/)[1]}StatusBar`
-    );
+  if (fileName && NEEDED_RESOURCES[fileName]) {
+    const match = fileName.match(/([^/%]+)\.onnx$/);
+    if (match) {
+      statusBarElement = document.getElementById(`${match[1]}StatusBar`);
+    }
   }
 
   switch (message.status) {
@@ -433,7 +434,7 @@ async function scanCacheStorage() {
     const url = REQUEST_PREFIX + name;
     const cacheResponse = await cache.match(url);
     const statusBarElement = document.getElementById(
-      `${name.match(/\/?([^/.]+?)(?:\.[^/.]+)?$/)[1]}StatusBar`
+      `${name.match(/([^/%2F]+)\.onnx$/)[1]}StatusBar`
     );
     if (!cacheResponse || !cacheResponse.ok) {
       // not cached

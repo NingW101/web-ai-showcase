@@ -47,50 +47,51 @@ export const MEDIAPIPE_WASM_FILE_PATH = "/models/mediapipe/tasks-genai/wasm";
  *   ./`${transformer_local_model_path}`/Xenova/distilbart-cnn-6-6/config.json
  *
  *   For onnx model files:
- *   ./`${transformer_local_model_path}`/models/Xenova/distilbart-cnn-6-6/onnx/decoder_model_merged_quantized.onnx
+ *   ./`${transformer_local_model_path}`/models/Xenova/distilbart-cnn-6-6/onnx%2Fdecoder_model_merged_quantized.onnx
  */
 export const ALL_NEEDED_MODEL_RESOURCES = {
   // summarization
   "distilbart-cnn-6-6": {
     linkPathPrefix:
-      "https://huggingface.co/Xenova/distilbart-cnn-6-6/resolve/main/",
-    localFolderPathPrefix: "Xenova/",
+      "https://modelscope.cn/api/v1/models/AI-ModelScope/distilbart-cnn-6-6/repo?Revision=master&FilePath=",
+    localFolderPathPrefix: "AI-ModelScope/",
     resources: [
-      "onnx/decoder_model_merged_quantized.onnx",
-      "onnx/encoder_model_quantized.onnx"
+      "onnx%2Fdecoder_model_merged_quantized.onnx",
+      "onnx%2Fencoder_model_quantized.onnx"
     ]
   },
 
   // image-to-text
   "vit-gpt2-image-captioning": {
     linkPathPrefix:
-      "https://huggingface.co/Xenova/vit-gpt2-image-captioning/resolve/main/",
-    localFolderPathPrefix: "Xenova/",
+      "https://modelscope.cn/api/v1/models/AI-ModelScope/vit-gpt2-image-captioning/repo?Revision=master&FilePath=",
+    localFolderPathPrefix: "AI-ModelScope/",
     resources: [
-      "onnx/decoder_model_merged_quantized.onnx",
-      "onnx/encoder_model_quantized.onnx"
+      "onnx%2Fdecoder_model_merged_quantized.onnx",
+      "onnx%2Fencoder_model_quantized.onnx"
     ]
   },
 
   // question-answering
   "distilbert-base-cased-distilled-squad": {
     linkPathPrefix:
-      "https://huggingface.co/Xenova/distilbert-base-cased-distilled-squad/resolve/main/",
-    localFolderPathPrefix: "Xenova/",
-    resources: ["onnx/model_quantized.onnx"]
+      "https://modelscope.cn/api/v1/models/AI-ModelScope/distilbert-base-cased-distilled-squad/repo?Revision=master&FilePath=",
+    localFolderPathPrefix: "AI-ModelScope/",
+    resources: ["onnx%2Fmodel_quantized.onnx"]
   },
 
   // background-removal
   "RMBG-1.4": {
-    linkPathPrefix: "https://huggingface.co/briaai/RMBG-1.4/resolve/main/",
-    localFolderPathPrefix: "briaai/",
-    resources: ["onnx/model.onnx"]
+    linkPathPrefix:
+      "https://modelscope.cn/api/v1/models/AI-ModelScope/RMBG-1.4/repo?Revision=master&FilePath=",
+    localFolderPathPrefix: "AI-ModelScope/",
+    resources: ["onnx%2Fmodel.onnx"]
   },
 
   // SD-Turbo
   "sd-turbo-ort-web": {
     linkPathPrefix:
-      "https://huggingface.co/schmuell/sd-turbo-ort-web/resolve/main/",
+      "https://modelscope.cn/api/v1/models/AI-ModelScope/sd-turbo-ort-web/repo?Revision=master&FilePath=",
     localFolderPathPrefix: "schmuell/",
     resources: [
       "unet/model.onnx",
@@ -102,22 +103,22 @@ export const ALL_NEEDED_MODEL_RESOURCES = {
   // used by SD-Turbo
   "clip-vit-base-patch16": {
     linkPathPrefix:
-      "https://huggingface.co/Xenova/clip-vit-base-patch16/resolve/main/",
-    localFolderPathPrefix: "Xenova/",
+      "https://modelscope.cn/api/v1/models/AI-ModelScope/clip-vit-base-patch16/repo?Revision=master&FilePath=",
+    localFolderPathPrefix: "AI-ModelScope/",
     resources: []
   },
 
   "Phi-3-mini-4k-instruct": {
     linkPathPrefix:
-      "https://huggingface.co/Xenova/Phi-3-mini-4k-instruct/resolve/main/",
+      "https://modelscope.cn/api/v1/models/AI-ModelScope/Phi-3-mini-4k-instruct/repo?Revision=master&FilePath=",
     localFolderPathPrefix: "Xenova/",
-    resources: ["onnx/model_q4.onnx", "onnx/model_q4.onnx_data"]
+    resources: ["onnx%2Fmodel_q4.onnx", "onnx%2Fmodel_q4.onnx_data"]
   },
 
   "Phi-3-mini-4k-instruct_fp16": {
     linkPathPrefix:
-      "https://huggingface.co/Xenova/Phi-3-mini-4k-instruct_fp16/resolve/main/",
-    localFolderPathPrefix: "Xenova/",
-    resources: ["onnx/model_q4.onnx", "onnx/model_q4.onnx_data"]
+      "https://modelscope.cn/api/v1/models/AI-ModelScope/Phi-3-mini-4k-instruct_fp16/repo?Revision=master&FilePath=",
+    localFolderPathPrefix: "AI-ModelScope/",
+    resources: ["onnx%2Fmodel_q4.onnx", "onnx%2Fmodel_q4.onnx_data"]
   }
 };

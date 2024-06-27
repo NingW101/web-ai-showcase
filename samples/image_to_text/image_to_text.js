@@ -184,9 +184,8 @@ worker.addEventListener("message", (event) => {
         ) {
           break;
         }
-
         removeHiddenClass(LOADING_MODELS_TEXT, PROGRESS);
-
+        //<div model="AI-ModelScope/vit-gpt2-image-captioning" file="onnx%2Fencoder_model_quantized.onnx"
         PROGRESS.appendChild(
           htmlToElement(`<div model="${message.data.name}" file="${message.data.file}"
       class="relative my-4 rounded-2xl w-full min-h-[30px] bg-stone-200/40 flex items-center justify-between font-mono"
@@ -216,9 +215,10 @@ worker.addEventListener("message", (event) => {
           `div[model="${message.data.name}"][file="${message.data.file}"]`
         );
 
-        const statusBarElement = document.getElementById(
-          `${message.data.file.match(/\/?([^/.]+?)(?:\.[^/.]+)?$/)[1]}StatusBar`
-        );
+        const match = message.data.file.match(/([^/%]+)\.onnx$/);
+        const statusBarElement = match
+          ? document.getElementById(`${match[1]}StatusBar`)
+          : null;
 
         switch (message.data.status) {
           case "progress":
@@ -436,9 +436,11 @@ async function scanCacheStorage() {
       textContent = "";
     const url = REQUEST_PREFIX + name;
     const cacheResponse = await cache.match(url);
-    const statusBarElement = document.getElementById(
-      `${name.match(/\/?([^/.]+?)(?:\.[^/.]+)?$/)[1]}StatusBar`
-    );
+    const match = name.match(/([^/%]+)\.onnx$/);
+
+    const statusBarElement = match
+      ? document.getElementById(`${match[1]}StatusBar`)
+      : null;
     if (!cacheResponse || !cacheResponse.ok) {
       // not cached
       status = "unload";
