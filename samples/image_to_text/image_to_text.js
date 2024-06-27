@@ -215,7 +215,7 @@ worker.addEventListener("message", (event) => {
           `div[model="${message.data.name}"][file="${message.data.file}"]`
         );
 
-        const match = message.data.file.match(/([^/%]+)\.onnx$/);
+        const match = message.data.file.match(/([^/2F%]+)\.onnx$/);
         const statusBarElement = match
           ? document.getElementById(`${match[1]}StatusBar`)
           : null;
@@ -436,7 +436,7 @@ async function scanCacheStorage() {
       textContent = "";
     const url = REQUEST_PREFIX + name;
     const cacheResponse = await cache.match(url);
-    const match = name.match(/([^/%]+)\.onnx$/);
+    const match = name.match(/([^/2F%]+)\.onnx$/);
 
     const statusBarElement = match
       ? document.getElementById(`${match[1]}StatusBar`)

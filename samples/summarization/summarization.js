@@ -143,9 +143,10 @@ worker.addEventListener("message", (event) => {
           }
           break;
         }
-        const statusBarElement = document.getElementById(
-          `${message.data.file.match(/\/?([^/.]+?)(?:\.[^/.]+)?$/)[1]}StatusBar`
-        );
+        const match = message.data.file.match(/([^/2F%]+)\.onnx$/);
+        const statusBarElement = match
+          ? document.getElementById(`${match[1]}StatusBar`)
+          : null;
 
         const barElem = PROGRESS.querySelector(
           `div[model="${message.data.name}"][file="${message.data.file}"]`
@@ -360,9 +361,12 @@ async function scanCacheStorage() {
       textContent = "";
     const url = REQUEST_PREFIX + name;
     const cacheResponse = await cache.match(url);
-    const statusBarElement = document.getElementById(
-      `${name.match(/\/?([^/.]+?)(?:\.[^/.]+)?$/)[1]}StatusBar`
-    );
+
+    const match = name.match(/([^/2F%]+)\.onnx$/);
+    const statusBarElement = match
+      ? document.getElementById(`${match[1]}StatusBar`)
+      : null;
+
     if (!cacheResponse || !cacheResponse.ok) {
       // not cached
       status = "unload";

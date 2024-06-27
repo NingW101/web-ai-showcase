@@ -94,9 +94,9 @@ export const ALL_NEEDED_MODEL_RESOURCES = {
       "https://modelscope.cn/api/v1/models/AI-ModelScope/sd-turbo-ort-web/repo?Revision=master&FilePath=",
     localFolderPathPrefix: "schmuell/",
     resources: [
-      "unet/model.onnx",
-      "vae_decoder/model.onnx",
-      "text_encoder/model.onnx"
+      "unet%2Fmodel.onnx",
+      "vae_decoder%2Fmodel.onnx",
+      "text_encoder%2Fmodel.onnx"
     ]
   },
 

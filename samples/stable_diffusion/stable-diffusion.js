@@ -21,7 +21,7 @@ const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
 // load navigation bar
 setupNavigBar("../..");
 
-env.allowLocalModels = true;
+env.allowLocalModels = false;
 env.localModelPath = baseUrl + TRANSFORMER_LOCAL_MODEL_PATH;
 
 var deviceWebgpu = null;
@@ -145,7 +145,7 @@ const config = getConfig();
 
 const models = {
   unet: {
-    url: "unet/model.onnx",
+    url: "unet%2Fmodel.onnx",
     size: 640,
     // should have 'steps: 1' but will fail to create the session
     opt: {
@@ -159,13 +159,13 @@ const models = {
     }
   },
   text_encoder: {
-    url: "text_encoder/model.onnx",
+    url: "text_encoder%2Fmodel.onnx",
     size: 1700,
     // should have 'sequence_length: 77' but produces a bad image
     opt: { freeDimensionOverrides: { batch_size: 1 } }
   },
   vae_decoder: {
-    url: "vae_decoder/model.onnx",
+    url: "vae_decoder%2Fmodel.onnx",
     size: 95,
     opt: {
       freeDimensionOverrides: {

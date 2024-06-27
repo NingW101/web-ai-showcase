@@ -33,7 +33,7 @@ env.remoteHost = "https://modelscope.cn";
 env.remotePathTemplate = "/api/v1/models/{model}/repo?Revision={revision}";
 
 // Since we will download the model from the Hugging Face Hub, we can skip the local model check
-env.allowLocalModels = true;
+env.allowLocalModels = false;
 env.localModelPath = baseUrl + TRANSFORMER_LOCAL_MODEL_PATH;
 const domain = location.href.match(/(https?:\/\/[^/]+)/)[0];
 
@@ -77,7 +77,7 @@ function model_progress_cb_handler(message) {
   const fileName = message.file;
   let statusBarElement = null;
   if (fileName && NEEDED_RESOURCES[fileName]) {
-    const match = fileName.match(/([^/%]+)\.onnx$/);
+    const match = fileName.match(/([^/2F%]+)\.onnx$/);
     if (match) {
       statusBarElement = document.getElementById(`${match[1]}StatusBar`);
     }
@@ -337,7 +337,7 @@ async function predict(url) {
         device: "webgpu",
         dtype: "fp32",
         revision: "master",
-        model_file_name: "onnx%2Fmodel.onnx"
+        model_file_name: "model"
       });
     }
 

@@ -24,56 +24,56 @@ const DEVICES = {
 // To add a new sample, please put <id>.png and <id>.mp4 in the public/assets folder.
 let SAMPLES = [
   // WASM
-  // {
-  //   id: "wasm_image_to_text",
-  //   title: "ViT GPT2",
-  //   desc: "Generate text from image",
-  //   sampleUrl: "./samples/image_to_text/index.html",
-  //   models: ["ViT GPT2"],
-  //   tasks: "Image-to-Text",
-  //   webApis: [BACKENDS.WASM],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.CPU],
-  //   update: "2024-06-08"
-  // },
-  // {
-  //   id: "wasm_question_answering",
-  //   title: "DistilBERT",
-  //   desc: "Answer question from context",
-  //   sampleUrl: "./samples/question_answering/index.html",
-  //   models: ["DistilBERT"],
-  //   tasks: "Fill-Mask",
-  //   webApis: [BACKENDS.WASM],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.CPU],
-  //   update: "2024-06-08"
-  // },
-  // {
-  //   id: "wasm_summarization",
-  //   title: "DistilBART",
-  //   desc: "Generate summaries of paragraphs",
-  //   sampleUrl: "./samples/summarization/index.html",
-  //   models: ["DistilBART"],
-  //   tasks: "Summarization",
-  //   webApis: [BACKENDS.WASM],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.CPU],
-  //   update: "2024-06-08"
-  // },
+  {
+    id: "wasm_image_to_text",
+    title: "ViT GPT2",
+    desc: "Generate text from image",
+    sampleUrl: "./samples/image_to_text/index.html",
+    models: ["ViT GPT2"],
+    tasks: "Image-to-Text",
+    webApis: [BACKENDS.WASM],
+    framework: "Transformers.js",
+    devices: [DEVICES.CPU],
+    update: "2024-06-08"
+  },
+  {
+    id: "wasm_question_answering",
+    title: "DistilBERT",
+    desc: "Answer question from context",
+    sampleUrl: "./samples/question_answering/index.html",
+    models: ["DistilBERT"],
+    tasks: "Fill-Mask",
+    webApis: [BACKENDS.WASM],
+    framework: "Transformers.js",
+    devices: [DEVICES.CPU],
+    update: "2024-06-08"
+  },
+  {
+    id: "wasm_summarization",
+    title: "DistilBART",
+    desc: "Generate summaries of paragraphs",
+    sampleUrl: "./samples/summarization/index.html",
+    models: ["DistilBART"],
+    tasks: "Summarization",
+    webApis: [BACKENDS.WASM],
+    framework: "Transformers.js",
+    devices: [DEVICES.CPU],
+    update: "2024-06-08"
+  },
 
   // WebGPU
-  // {
-  //   id: "webgpu_background_removal",
-  //   title: "RMBG",
-  //   desc: "Remove the background of an image",
-  //   sampleUrl: "./samples/image_background_removal/index.html",
-  //   models: ["RMBG v1.4"],
-  //   tasks: "Image Segmentation",
-  //   webApis: [BACKENDS.WEBGPU],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.GPU],
-  //   update: "2024-06-08"
-  // },
+  {
+    id: "webgpu_background_removal",
+    title: "RMBG",
+    desc: "Remove the background of an image",
+    sampleUrl: "./samples/image_background_removal/index.html",
+    models: ["RMBG v1.4"],
+    tasks: "Image Segmentation",
+    webApis: [BACKENDS.WEBGPU],
+    framework: "Transformers.js",
+    devices: [DEVICES.GPU],
+    update: "2024-06-08"
+  },
   // {
   //   id: "webgpu_benchmark",
   //   title: "Benchmark",
@@ -137,18 +137,18 @@ let SAMPLES = [
   //   devices: [DEVICES.GPU],
   //   update: "2024-06-10"
   // },
-  // {
-  //   id: "webgpu_phi3_mini",
-  //   title: "Phi-3",
-  //   desc: "A private and powerful AI chatbot that runs locally in your browser",
-  //   sampleUrl: "./samples/phi3-webgpu/index.html",
-  //   models: ["Phi 3 Mini 4k Instruct"],
-  //   tasks: "Text Generation",
-  //   webApis: [BACKENDS.WEBGPU],
-  //   framework: "Transformers.js",
-  //   devices: [DEVICES.GPU],
-  //   update: "2024-06-09"
-  // },
+  {
+    id: "webgpu_phi3_mini",
+    title: "Phi-3",
+    desc: "A private and powerful AI chatbot that runs locally in your browser",
+    sampleUrl: "./samples/phi3-webgpu/index.html",
+    models: ["Phi 3 Mini 4k Instruct"],
+    tasks: "Text Generation",
+    webApis: [BACKENDS.WEBGPU],
+    framework: "Transformers.js",
+    devices: [DEVICES.GPU],
+    update: "2024-06-09"
+  },
   // {
   //   id: "webgpu_qwen2",
   //   title: "Qwen2",
@@ -173,18 +173,18 @@ let SAMPLES = [
   //   devices: [DEVICES.GPU],
   //   update: "2024-06-08"
   // },
-  // {
-  //   id: "webgpu_sd_turbo",
-  //   title: "SD-Turbo",
-  //   desc: "Transform your words into stunning AI visuals with SD-Turbo",
-  //   sampleUrl: "./samples/stable_diffusion/stable-diffusion.html",
-  //   models: ["SD-Turbo"],
-  //   tasks: "Text-to-Image",
-  //   webApis: [BACKENDS.WEBGPU],
-  //   framework: "ONNX Runtime Web",
-  //   devices: [DEVICES.GPU],
-  //   update: "2024-06-08"
-  // },
+  {
+    id: "webgpu_sd_turbo",
+    title: "SD-Turbo",
+    desc: "Transform your words into stunning AI visuals with SD-Turbo",
+    sampleUrl: "./samples/stable_diffusion/stable-diffusion.html",
+    models: ["SD-Turbo"],
+    tasks: "Text-to-Image",
+    webApis: [BACKENDS.WEBGPU],
+    framework: "ONNX Runtime Web",
+    devices: [DEVICES.GPU],
+    update: "2024-06-08"
+  }
   // {
   //   id: "webgpu_webllm",
   //   title: "WebLLM",
@@ -226,32 +226,32 @@ let SAMPLES = [
   //   update: "2024-06-08"
   // },
 
-  {
-    id: "webnn_image_classification",
-    title: "Image Classification",
-    desc: "Try image classification with models like MobileNet V2, SqueezeNet, and ResNet V2 50",
-    sampleUrl:
-      "https://webmachinelearning.github.io/webnn-samples/image_classification/index.html",
-    models: ["MobileNet v2", "SqueezeNet", "ResNet v2 50"],
-    tasks: "Image Classification",
-    webApis: [BACKENDS.WEBNN],
-    framework: "VanillaJS",
-    devices: [DEVICES.CPU, DEVICES.GPU, DEVICES.NPU],
-    update: "2024-06-08"
-  },
-  {
-    id: "webnn_object_detection",
-    title: "Object Detection",
-    desc: "Check out this sample for object detection with models like Tiny Yolo V2 and SSD MobileNet V1",
-    sampleUrl:
-      "https://webmachinelearning.github.io/webnn-samples/object_detection/index.html",
-    models: ["Tiny Yolo v2", "SSD MobileNet v1"],
-    tasks: "Object Detection",
-    webApis: [BACKENDS.WEBNN],
-    framework: "VanillaJS",
-    devices: [DEVICES.CPU, DEVICES.GPU, DEVICES.NPU],
-    update: "2024-06-08"
-  },
+  // {
+  //   id: "webnn_image_classification",
+  //   title: "Image Classification",
+  //   desc: "Try image classification with models like MobileNet V2, SqueezeNet, and ResNet V2 50",
+  //   sampleUrl:
+  //     "https://webmachinelearning.github.io/webnn-samples/image_classification/index.html",
+  //   models: ["MobileNet v2", "SqueezeNet", "ResNet v2 50"],
+  //   tasks: "Image Classification",
+  //   webApis: [BACKENDS.WEBNN],
+  //   framework: "VanillaJS",
+  //   devices: [DEVICES.CPU, DEVICES.GPU, DEVICES.NPU],
+  //   update: "2024-06-08"
+  // },
+  // {
+  //   id: "webnn_object_detection",
+  //   title: "Object Detection",
+  //   desc: "Check out this sample for object detection with models like Tiny Yolo V2 and SSD MobileNet V1",
+  //   sampleUrl:
+  //     "https://webmachinelearning.github.io/webnn-samples/object_detection/index.html",
+  //   models: ["Tiny Yolo v2", "SSD MobileNet v1"],
+  //   tasks: "Object Detection",
+  //   webApis: [BACKENDS.WEBNN],
+  //   framework: "VanillaJS",
+  //   devices: [DEVICES.CPU, DEVICES.GPU, DEVICES.NPU],
+  //   update: "2024-06-08"
+  // }
   // {
   //   id: "webnn_sam",
   //   title: "Segment Anything",
@@ -291,45 +291,45 @@ let SAMPLES = [
   //   devices: [DEVICES.GPU],
   //   update: "2024-06-08"
   // },
-  {
-    id: "webnn_semantic_segmentation",
-    title: "Semantic Segmentation",
-    desc: "See how semantic segmentation works with the DeepLab V3 with MobileNet V2 models",
-    sampleUrl:
-      "https://webmachinelearning.github.io/webnn-samples/semantic_segmentation/index.html",
-    models: ["DeepLab v3", "MobileNet v2"],
-    tasks: "Image Segmentation",
-    webApis: [BACKENDS.WEBNN],
-    framework: "VanillaJS",
-    devices: [DEVICES.CPU, DEVICES.GPU],
-    update: "2024-06-08"
-  },
-  {
-    id: "webnn_face_recognition",
-    title: "Face Recognition",
-    desc: "Explore the power of face recognition in your browser with the SSD MobileNet V2 Face",
-    sampleUrl:
-      "https://webmachinelearning.github.io/webnn-samples/face_recognition/index.html",
-    models: ["SSD MobileNet v2 Face"],
-    tasks: "Object Detection",
-    webApis: [BACKENDS.WEBNN],
-    framework: "VanillaJS",
-    devices: [DEVICES.CPU, DEVICES.GPU],
-    update: "2024-06-08"
-  },
-  {
-    id: "webnn_face_landmark_detection",
-    title: "Facial Landmark Detection",
-    desc: "See how facial landmark detection works with the SSD MobileNet V2 Face models",
-    sampleUrl:
-      "https://webmachinelearning.github.io/webnn-samples/facial_landmark_detection/index.html",
-    models: ["SSD MobileNet v2 Face"],
-    tasks: "Object Detection",
-    webApis: [BACKENDS.WEBNN],
-    framework: "VanillaJS",
-    devices: [DEVICES.CPU, DEVICES.GPU],
-    update: "2024-06-08"
-  }
+  // {
+  //   id: "webnn_semantic_segmentation",
+  //   title: "Semantic Segmentation",
+  //   desc: "See how semantic segmentation works with the DeepLab V3 with MobileNet V2 models",
+  //   sampleUrl:
+  //     "https://webmachinelearning.github.io/webnn-samples/semantic_segmentation/index.html",
+  //   models: ["DeepLab v3", "MobileNet v2"],
+  //   tasks: "Image Segmentation",
+  //   webApis: [BACKENDS.WEBNN],
+  //   framework: "VanillaJS",
+  //   devices: [DEVICES.CPU, DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
+  // {
+  //   id: "webnn_face_recognition",
+  //   title: "Face Recognition",
+  //   desc: "Explore the power of face recognition in your browser with the SSD MobileNet V2 Face",
+  //   sampleUrl:
+  //     "https://webmachinelearning.github.io/webnn-samples/face_recognition/index.html",
+  //   models: ["SSD MobileNet v2 Face"],
+  //   tasks: "Object Detection",
+  //   webApis: [BACKENDS.WEBNN],
+  //   framework: "VanillaJS",
+  //   devices: [DEVICES.CPU, DEVICES.GPU],
+  //   update: "2024-06-08"
+  // },
+  // {
+  //   id: "webnn_face_landmark_detection",
+  //   title: "Facial Landmark Detection",
+  //   desc: "See how facial landmark detection works with the SSD MobileNet V2 Face models",
+  //   sampleUrl:
+  //     "https://webmachinelearning.github.io/webnn-samples/facial_landmark_detection/index.html",
+  //   models: ["SSD MobileNet v2 Face"],
+  //   tasks: "Object Detection",
+  //   webApis: [BACKENDS.WEBNN],
+  //   framework: "VanillaJS",
+  //   devices: [DEVICES.CPU, DEVICES.GPU],
+  //   update: "2024-06-08"
+  // }
   // {
   //   id: "webnn_whisper_base",
   //   title: "Whisper Base",
