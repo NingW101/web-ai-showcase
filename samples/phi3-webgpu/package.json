@@ -9,7 +9,9 @@
     "build:github": "vite build --mode github",
     "build:modelscope": "vite build --mode modelscope",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "startup": "cd ./dist && http-server -S -C ../cert.pem -K ../key.pem -o",
+    "preview": "vite preview",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@vitejs/plugin-basic-ssl": "^1.1.0",
@@ -29,7 +31,9 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "patch-package": "^8.0.0",
     "postcss": "^8.4.38",
+    "postinstall-postinstall": "^2.1.0",
     "tailwindcss": "^3.4.3",
     "vite": "^5.2.11",
     "vite-plugin-top-level-await": "^1.4.1"

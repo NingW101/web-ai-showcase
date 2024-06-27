@@ -7,7 +7,7 @@
 import { setupNavigBar } from "./navbar.js";
 
 // set up base for modelScope
-const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static/";
+const baseUrl = "/api/v1/studio/ningwang101/Web-AI-Showcase/static/";
 
 const BACKENDS = {
   WASM: "Wasm",

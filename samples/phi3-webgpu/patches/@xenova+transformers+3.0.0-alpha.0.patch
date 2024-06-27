@@ -1,0 +1,45 @@
+diff --git a/node_modules/@xenova/transformers/src/models.js b/node_modules/@xenova/transformers/src/models.js
+index 0064bb3..eb7cfc1 100644
+--- a/node_modules/@xenova/transformers/src/models.js
++++ b/node_modules/@xenova/transformers/src/models.js
+@@ -37,7 +37,7 @@
+  *
+  * @module models
+  */
+-
++import {env} from "./env.js"
+ import {
+     AutoConfig,
+     getKeyValueShapes,
+@@ -182,7 +182,12 @@ async function getSession(pretrained_model_name_or_path, fileName, options) {
+ 
+     // Construct the model file name
+     const suffix = DEFAULT_DTYPE_SUFFIX_MAPPING[dtype];
+-    const modelFileName = `${options.subfolder ?? ''}/${fileName}${suffix}.onnx`;
++    let modelFileName = fileName;
++    if (env.remoteHost === "https://modelscope.cn") {
++        modelFileName = `onnx%2F${fileName}${suffix}.onnx`;
++    } else {
++        modelFileName = `${options.subfolder ?? ''}/${fileName}${suffix}.onnx`;
++    }
+ 
+     const session_options = { ...options.session_options } ?? {};
+ 
+diff --git a/node_modules/@xenova/transformers/src/utils/hub.js b/node_modules/@xenova/transformers/src/utils/hub.js
+index b825697..8b12a30 100644
+--- a/node_modules/@xenova/transformers/src/utils/hub.js
++++ b/node_modules/@xenova/transformers/src/utils/hub.js
+@@ -408,9 +408,10 @@ export async function getModelFile(path_or_repo_id, filename, fatal = true, opti
+         env.remoteHost,
+         env.remotePathTemplate
+             .replaceAll('{model}', path_or_repo_id)
+-            .replaceAll('{revision}', encodeURIComponent(revision)),
+-        filename
+-    );
++            .replaceAll('{revision}', encodeURIComponent(revision))
++    ) + "&FilePath=" + filename;
++
++
+ 
+     // Choose cache key for filesystem cache
+     // When using the main revision (default), we use the request URL as the cache key.

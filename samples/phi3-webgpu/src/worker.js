@@ -62,19 +62,22 @@ class TextGenerationPipeline {
   static async getInstance(progress_callback = null) {
     // Choose the model based on whether fp16 is available
     this.model_id ??= (await hasFp16())
-      ? "Xenova/Phi-3-mini-4k-instruct_fp16"
-      : "Xenova/Phi-3-mini-4k-instruct";
+      ? "AI-ModelScope/Phi-3-mini-4k-instruct_fp16"
+      : "AI-ModelScope/Phi-3-mini-4k-instruct";
 
     this.tokenizer ??= AutoTokenizer.from_pretrained(this.model_id, {
       legacy: true,
-      progress_callback
+      progress_callback,
+      revision: "master"
     });
 
     this.model ??= AutoModelForCausalLM.from_pretrained(this.model_id, {
       dtype: "q4",
       device: "webgpu",
       use_external_data_format: true,
-      progress_callback
+      progress_callback,
+      revision: "master",
+      model_file_name: "model"
     });
 
     return Promise.all([this.tokenizer, this.model]);
@@ -135,12 +138,14 @@ async function load() {
     data: `Loading model and initializing`
   });
 
-  const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
+  const baseUrl = "/api/v1/studio/ningwang101/Web-AI-Showcase/static";
 
   // transformers will first fetch from local model path
   // then from remote model path if not found locally
   env.localModelPath = `${baseUrl}/models/`;
-  env.allowLocalModels = true;
+  env.remoteHost = "https://modelscope.cn";
+  env.remotePathTemplate = "/api/v1/models/{model}/repo?Revision={revision}";
+  env.allowLocalModels = false;
   // set up the path to use local wasm files for the onnx backend
   env.backends.onnx.wasm.wasmPaths = `${baseUrl}/models/wasm/ort-web@1_18_0/`;
 

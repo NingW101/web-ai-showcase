@@ -4,6 +4,7 @@
  *  SPDX-License-Identifier: Apache-2.0
  *-----------------------------------------------------------------------------------------------*/
 
+//TODO: fix the status bar not working during downloading and caching
 import {
   ALL_NEEDED_MODEL_RESOURCES,
   USE_REMOTE_MODELS,
