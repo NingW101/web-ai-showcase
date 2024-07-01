@@ -5,11 +5,7 @@
  *-----------------------------------------------------------------------------------------------*/
 
 //TODO: fix the status bar not working during downloading and caching
-import {
-  ALL_NEEDED_MODEL_RESOURCES,
-  USE_REMOTE_MODELS,
-  TRANSFORMER_LOCAL_MODEL_PATH
-} from "../../config.js";
+import { ALL_NEEDED_MODEL_RESOURCES } from "../../config.js";
 
 export function changeClass4StatusBar(status, targetElement) {
   const unloadClass = "bg-neutral-400";

@@ -33,7 +33,7 @@ async function hasFp16() {
   }
 }
 
-const baseUrl = "/api/v1/studio/ningwang101/Web-AI-Showcase/static";
+const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
 
 const MODEL_NAME = (await hasFp16())
   ? "Phi-3-mini-4k-instruct_fp16"
@@ -89,7 +89,7 @@ function App() {
         const elementId = getElementId4Resource(resource);
 
         const text =
-          resource.indexOf("/") > 0 ? resource.split("/")[1] : resource;
+          resource.indexOf("/") > 0 ? resource.split("%2F")[1] : resource;
 
         const url =
           ALL_NEEDED_MODEL_RESOURCES[modelName].linkPathPrefix + resource;
@@ -186,7 +186,7 @@ function App() {
       }
 
       const statusBarElement = document.getElementById(
-        `${name.split(".")[0].split("/")[1]}-${name.split(".")[1]}StatusBar`
+        `${name.split(".")[0].split("%2F")[1]}-${name.split(".")[1]}StatusBar`
       );
 
       if (!cacheResponse || !cacheResponse.ok) {
@@ -215,7 +215,7 @@ function App() {
     let modelsAllReady = true;
     for (const name of ALL_NEEDED_MODEL_RESOURCES[MODEL_NAME].resources) {
       const statusBarElement = document.getElementById(
-        `${name.split(".")[0].split("/")[1]}-${name.split(".")[1]}StatusBar`
+        `${name.split(".")[0].split("%2F")[1]}-${name.split(".")[1]}StatusBar`
       );
       if (
         statusBarElement &&
@@ -491,7 +491,7 @@ function App() {
           setProgressItems((prev) => [...prev, e.data]);
           break;
 
-        case "progress":
+        case "progress": {
           // Model file progress: update one of the progress items.
           setProgressItems((prev) =>
             prev.map((item) => {
@@ -501,12 +501,20 @@ function App() {
               return item;
             })
           );
+          const statusBarElement = document.getElementById(
+            `${e.data.file.split(".")[0].split("%2F")[1]}-${e.data.file.split(".")[1]}StatusBar`
+          );
+          if (statusBarElement) {
+            changeClass4StatusBar("loading", statusBarElement);
+            statusBarElement.textContent = "loading";
+          }
           break;
+        }
 
         case "done": {
           // update the model status
           const statusBarElement = document.getElementById(
-            `${e.data.file.split(".")[0].split("/")[1]}-${e.data.file.split(".")[1]}StatusBar`
+            `${e.data.file.split(".")[0].split("%2F")[1]}-${e.data.file.split(".")[1]}StatusBar`
           );
           if (statusBarElement) {
             changeClass4StatusBar("loaded", statusBarElement);
@@ -759,7 +767,7 @@ function App() {
             {progressItems.map(({ file, progress, total }, i) => (
               <Progress
                 key={i}
-                text={file}
+                text={file.replace("%2F", "/")}
                 percentage={progress}
                 total={total}
               />
