@@ -21,8 +21,11 @@ const baseUrl = "/api/v1/studio/Intel/Web-AI-Showcase/static";
 // load navigation bar
 setupNavigBar("../..");
 
-env.allowLocalModels = false;
-env.localModelPath = baseUrl + TRANSFORMER_LOCAL_MODEL_PATH;
+const modelName = "sd-turbo-ort-web";
+const tokenizerName = "clip-vit-base-patch16";
+
+env.allowLocalModels = true;
+env.localModelPath = baseUrl + TRANSFORMER_LOCAL_MODEL_PATH + "Xenova/";
 
 var deviceWebgpu = null;
 var queueWebgpu = null;
@@ -137,9 +140,6 @@ var out_color = vec4<f32>(r, g, b, a);
 return out_color;
 }
 `;
-
-const modelName = "sd-turbo-ort-web";
-const tokenizerName = "clip-vit-base-patch16";
 
 const config = getConfig();
 
@@ -707,10 +707,9 @@ async function run(initFlag = false) {
 
       if (tokenizer === undefined) {
         logOutToPanel("Loading tokenizer ...");
-        tokenizer = await AutoTokenizer.from_pretrained(
-          ALL_NEEDED_MODEL_RESOURCES[tokenizerName].localFolderPathPrefix +
-            tokenizerName
-        );
+        tokenizer = await AutoTokenizer.from_pretrained(tokenizerName, {
+          revision: "master"
+        });
 
         tokenizer.pad_token_id = 0;
       }
