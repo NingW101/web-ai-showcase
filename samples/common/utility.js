@@ -172,9 +172,13 @@ export function formatBytes(bytes, decimals = 0) {
 }
 
 export function htmlToElement(html) {
+  const domPurityConfig = {
+    ADD_ATTR: ["model", "file"] // Keep custom attributes
+  };
   // https://stackoverflow.com/a/35385518
   let template = document.createElement("template");
-  template.innerHTML = DOMPurify.sanitize(html.trim());
+  const cleanHtml = DOMPurify.sanitize(html.trim(), domPurityConfig);
+  template.innerHTML = cleanHtml;
   return template.content.firstChild;
 }
 
