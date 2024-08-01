@@ -9,6 +9,8 @@ import {
   TRANSFORMER_LOCAL_MODEL_PATH
 } from "../../config.js";
 
+import DOMPurify from "dompurify";
+
 export function changeClass4StatusBar(status, targetElement) {
   const unloadClass = "bg-neutral-400";
   const cachedClass = "bg-sky-500";
@@ -172,8 +174,7 @@ export function formatBytes(bytes, decimals = 0) {
 export function htmlToElement(html) {
   // https://stackoverflow.com/a/35385518
   let template = document.createElement("template");
-  html = html.trim(); // Never return a text node of whitespace as the result
-  template.innerHTML = html;
+  template.innerHTML = DOMPurify.sanitize(html.trim());
   return template.content.firstChild;
 }
 
