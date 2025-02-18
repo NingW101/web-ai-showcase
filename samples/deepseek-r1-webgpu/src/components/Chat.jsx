@@ -49,7 +49,7 @@ function Message({ role, content, answerIndex }) {
                         className={doneThinking ? "" : "animate-pulse"}
                       />
                       <span>
-                        {doneThinking ? "View reasoning." : "Thinking..."}
+                        {doneThinking ? "查看思考过程." : "思考中..."}
                       </span>
                       <span className="ml-auto text-gray-700">
                         {showThinking ? "▲" : "▼"}
